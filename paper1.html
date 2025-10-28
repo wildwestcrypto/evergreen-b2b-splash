@@ -59,12 +59,19 @@
     dialog::backdrop{background:rgba(0,0,0,.6);}
 
     /* Green foil and animation */
-    .foil-green{
-      background: linear-gradient(135deg, #6fa86a 0%, #9dc88d 30%, #4e8f4a 60%, #b4d8b2 100%);
+    .foil-green {
+      background: linear-gradient(
+        135deg,
+        #b5d48c 0%,   /* highlight */
+        #5b8f55 30%,  /* mid green */
+        #1f4225 60%,  /* deep shadow */
+        #8fc27a 100%  /* reflective fade */
+      );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-size: 200% 200%;
-      animation: foilShift 6s ease-in-out infinite alternate;
+      animation: foilShift 8s ease-in-out infinite alternate;
+      filter: brightness(1.1) contrast(1.2);
     }
       @keyframes foilShift{
       from{background-position: 0% 50%;}
