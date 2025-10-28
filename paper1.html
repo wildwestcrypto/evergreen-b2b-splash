@@ -19,90 +19,85 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    /* =========================================================
-       Evergreen Paper Aesthetic
-       - Use a premium paper texture as the page background
-       - Courier New for a document/typed feel
-       - Letterpress (pressed ink) text effect helpers
-       ========================================================= */
-
     :root{
-      --gold:#C8A44D;      /* Neutral Metallic Gold */
-      --ink:#2B2B2B;       /* Ink tone */
-      --ink-soft:#4A4A4A;  /* Softer ink */
-      --forest:#2F5233;    /* Deep Forest Green */
-      --cream:#F5F2E2;     /* Soft Cream */
+      --gold:#C8A44D;
+      --ink:#2B2B2B;
+      --ink-soft:#4A4A4A;
+      --forest:#2F5233;
+      --cream:#F5F2E2;
     }
 
-    /* Page background: set your paper texture here. Place the file at assets/paper-bg.png */
     body{
-      font-family: "Courier New", Courier, monospace;
-      color: var(--ink);
-      background-image: url("assets/paper-bg.png"); /* <-- rename your uploaded texture to this path */
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
+      font-family:"Courier New", Courier, monospace;
+      color:var(--ink);
+      background-image:url("assets/paper-bg.jpg");
+      background-size:cover;
+      background-position:center;
+      background-attachment:fixed;
     }
 
-    /* Subtle page-wide grain overlay to enrich texture on hi-dpi */
-    body::after{
-      content: "";
-      position: fixed; inset: 0; pointer-events: none;
-      background: radial-gradient(circle at 30% 20%, rgba(255,255,255,.15), transparent 60%),
-                  radial-gradient(circle at 70% 80%, rgba(0,0,0,.06), transparent 60%);
-      mix-blend-mode: multiply; opacity:.35;
+    .type-ink{
+      color:var(--ink);
+      letter-spacing:0.01em;
+      text-shadow:0.4px 0.4px 0 rgba(255,255,255,.85),-0.4px -0.6px 0 rgba(0,0,0,.06);
+      mix-blend-mode:multiply;
+    }
+    .type-ink-soft{
+      color:var(--ink-soft);
+      letter-spacing:0.01em;
+      text-shadow:0.4px 0.4px 0 rgba(255,255,255,.85),-0.3px -0.5px 0 rgba(0,0,0,.05);
+      mix-blend-mode:multiply;
     }
 
-    /* Certificate frame style for sections/cards */
-    .paper-card{
-      background: rgba(245,242,226,.85); /* soft cream with transparency */
-      border: 1px solid rgba(0,0,0,.08);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.8),
-                  inset 0 -1px 0 rgba(0,0,0,.05),
-                  0 10px 30px rgba(0,0,0,.08);
-      border-radius: 16px;
-      backdrop-filter: blur(1.5px);
-    }
-
-    /* Pressed (letterpress) text effect */
-    .pressed{
-      color: var(--ink);
-      text-shadow: 0 1px 0 rgba(255,255,255,.9),
-                   0 -1px 0 rgba(0,0,0,.10);
-    }
-    .pressed-soft{ /* for paragraphs */
-      color: var(--ink-soft);
-      text-shadow: 0 1px 0 rgba(255,255,255,.9), 0 -1px 0 rgba(0,0,0,.06);
-    }
-
-    /* Vintage-styled buttons (paper tabs) */
     .btn-paper{
-      background: linear-gradient(180deg, #fffdf5, #efe9d6);
-      border: 1px solid rgba(0,0,0,.12);
-      border-radius: 10px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.9), 0 2px 0 rgba(0,0,0,.08);
-      color: var(--ink);
+      background:linear-gradient(180deg,#fffdf5,#efe9d6);
+      border:1px solid rgba(0,0,0,.12);
+      border-radius:10px;
+      color:var(--ink);
     }
-    .btn-paper:active{ transform: translateY(1px); box-shadow: inset 0 1px 0 rgba(255,255,255,.9); }
+    .btn-gold{background:linear-gradient(135deg,var(--gold),#e0c878);color:#1a1a1a;border-radius:10px;}
+    dialog::backdrop{background:rgba(0,0,0,.6);}
+  
+    /* Stronger pressed/debossed ink effect */
+    .deboss{
+      color:var(--ink);
+      letter-spacing:0.01em;
+      text-shadow:
+        0 1px 0 rgba(255,255,255,.9),      /* top highlight */
+        0 -1px 0 rgba(0,0,0,.12),          /* bottom indent */
+        0.5px 0.5px 0 rgba(0,0,0,.04),     /* soft shadow */
+        -0.5px -0.5px 0 rgba(255,255,255,.35);
+      mix-blend-mode:multiply;
+    }
 
-    .btn-gold{ background: linear-gradient(135deg, var(--gold), #e0c878); color:#1a1a1a; border-radius:10px; box-shadow: 0 2px 0 rgba(0,0,0,.08);}    
-
-    /* Video modal overlay tint */
-    dialog::backdrop{ background: rgba(0,0,0,.6); }
+    /* Paper-framed media so images/video sit naturally on the page */
+    .media-paper{
+      position:relative;
+      border:1px solid rgba(0,0,0,.12);
+      border-radius:14px;
+      background:rgba(255,255,255,.35);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.75),
+        inset 0 -1px 0 rgba(0,0,0,.05),
+        0 12px 28px rgba(0,0,0,.18);
+      overflow:hidden;
+    }
+    .media-paper img, .media-paper video{display:block;width:100%;border-radius:12px;filter:contrast(.95) saturate(.95) brightness(.98);}    
+    .media-paper::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center, rgba(0,0,0,.08), transparent 55%);opacity:.35;mix-blend-mode:multiply;}
   </style>
 </head>
 <body class="antialiased">
 
   <!-- ========================================================= -->
-  <!-- Header                                                     -->
+  <!-- Header -->
   <!-- ========================================================= -->
   <header class="sticky top-0 z-20 bg-[rgba(245,242,226,.85)]/90 backdrop-blur-sm border-b border-black/10">
     <div class="mx-auto max-w-5xl px-4 py-3 flex items-center justify-between">
       <a href="#" class="flex items-center gap-3">
         <img src="assets/logo-seal.png" alt="Evergreen Exchange" class="h-9 w-9">
-        <span class="pressed">Evergreen Exchange</span>
+        <span class="type-ink">Evergreen Exchange</span>
       </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm pressed-soft">
+      <nav class="hidden md:flex items-center gap-6 text-sm type-ink-soft">
         <a href="#solution" class="hover:underline">Solution</a>
         <a href="#proof" class="hover:underline">Proof</a>
         <a href="#book" class="hover:underline">Book</a>
@@ -111,87 +106,84 @@
   </header>
 
   <!-- ========================================================= -->
-  <!-- Hero Section                                               -->
+  <!-- Hero Section -->
   <!-- ========================================================= -->
-  <section class="mx-auto max-w-5xl px-4 pt-12 pb-12">
-    <div class="paper-card p-8 md:p-12 text-center">
-      <img src="assets/logo-seal.png" alt="Evergreen seal" class="mx-auto h-14 w-14 mb-5 opacity-90">
-      <h1 class="pressed text-4xl md:text-6xl leading-tight">Prove Your Products Are Truly Carbon Neutral</h1>
-      <p class="pressed-soft mt-4 text-lg md:text-xl max-w-3xl mx-auto">Evergreen’s verified carbon reduction label helps brands earn trust and stand out with verifiable impact.</p>
-      <div class="mt-7 flex flex-wrap justify-center gap-4">
-        <button id="watchBtn" class="btn-gold px-6 py-3 font-semibold">▶ Watch the Video</button>
-        <a href="#book" class="btn-paper px-6 py-3 font-semibold">Book a Call</a>
-      </div>
+  <section class="mx-auto max-w-5xl px-4 pt-12 pb-12 text-center">
+    <img src="assets/logo-seal.png" alt="Evergreen seal" class="mx-auto h-14 w-14 mb-5 opacity-90">
+    <h1 class="type-ink deboss text-4xl md:text-6xl leading-tight">Prove Your Products Are Truly Carbon Neutral</h1>
+    <p class="type-ink-soft mt-4 text-lg md:text-xl max-w-3xl mx-auto">Evergreen’s verified carbon reduction label helps brands earn trust and stand out with verifiable impact.</p>
+    <div class="mt-7 flex flex-wrap justify-center gap-4">
+      <button id="watchBtn" class="btn-gold px-6 py-3 font-semibold">▶ Watch the Video</button>
+      <a href="#book" class="btn-paper px-6 py-3 font-semibold">Book a Call</a>
     </div>
 
-    <!-- Video preview card -->
-    <div class="mt-10 md:mt-12 max-w-4xl mx-auto paper-card overflow-hidden">
+    <div class="mt-10 md:mt-12 max-w-4xl mx-auto media-paper">
       <button id="watchCard" class="relative block group">
-        <img src="assets/video-poster.jpg" alt="Overview video" class="w-full h-auto opacity-95 group-hover:opacity-100 transition">
+        <img src="assets/video-poster.jpg" alt="Overview video" class="w-full h-auto opacity-95 group-hover:opacity-100 transition rounded-[12px]">
         <span class="absolute inset-0 grid place-items-center">
-          <span class="grid place-items-center h-16 w-16 rounded-full bg-[rgba(255,255,255,.95)] text-[var(--forest)] text-xl font-bold shadow">▶</span>
+          <span class="grid place-items-center h-16 w-16 rounded-full bg-[rgba(255,255,255,.96)] text-[var(--forest)] text-xl font-bold shadow">▶</span>
         </span>
       </button>
       <div class="flex items-center justify-between px-4 py-3">
-        <p class="pressed-soft text-sm">2‑minute overview: how Evergreen builds trust in sustainable packaging.</p>
+        <p class="type-ink-soft text-sm">2‑minute overview: how Evergreen builds trust in sustainable packaging.</p>
         <a href="#book" class="hidden sm:inline-flex btn-paper px-4 py-2 text-sm font-semibold">Book a Call</a>
       </div>
     </div>
   </section>
 
   <!-- ========================================================= -->
-  <!-- Proof Section                                              -->
+  <!-- Proof Section -->
   <!-- ========================================================= -->
-  <section id="proof" class="mt-6">
-    <div class="mx-auto max-w-5xl px-4 py-10 paper-card">
-      <h2 class="pressed text-xl">Trusted by</h2>
+  <section id="proof" class="mt-6 text-center">
+    <div class="mx-auto max-w-5xl px-4 py-10">
+      <h2 class="type-ink text-xl">Trusted by</h2>
       <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-8 opacity-90">
         <img src="assets/logo1.png" class="h-10 object-contain" alt="Brand 1">
         <img src="assets/logo2.png" class="h-10 object-contain" alt="Brand 2">
         <img src="assets/logo3.png" class="h-10 object-contain" alt="Brand 3">
         <img src="assets/logo4.png" class="h-10 object-contain" alt="Brand 4">
       </div>
-      <p class="pressed-soft mt-6 text-sm">Each Evergreen label’s carbon data is permanently recorded on the Bitcoin blockchain.</p>
+      <p class="type-ink-soft mt-6 text-sm">Each Evergreen label’s carbon data is permanently recorded on the Bitcoin blockchain.</p>
     </div>
   </section>
 
   <!-- ========================================================= -->
-  <!-- Solution Section                                           -->
+  <!-- Solution Section -->
   <!-- ========================================================= -->
   <section id="solution" class="mt-6">
     <div class="mx-auto max-w-5xl px-4 py-10 grid md:grid-cols-3 gap-6">
-      <div class="paper-card p-6">
+      <div class="p-6">
         <div class="h-12 w-12 rounded-xl bg-[#eef5ea] grid place-items-center">
           <img src="assets/icon-verified.png" alt="Verified" class="h-6 w-6">
         </div>
-        <h3 class="pressed mt-4 text-lg">Verified Carbon Reduction</h3>
-        <p class="pressed-soft mt-2 text-sm">Proof of real climate impact per product unit.</p>
+        <h3 class="type-ink mt-4 text-lg">Verified Carbon Reduction</h3>
+        <p class="type-ink-soft mt-2 text-sm">Proof of real climate impact per product unit.</p>
       </div>
-      <div class="paper-card p-6">
+      <div class="p-6">
         <div class="h-12 w-12 rounded-xl bg-[#eef5ea] grid place-items-center">
           <img src="assets/icon-shield.png" alt="Security" class="h-6 w-6">
         </div>
-        <h3 class="pressed mt-4 text-lg">Anti‑Counterfeit Security</h3>
-        <p class="pressed-soft mt-2 text-sm">Foil‑sealed label technology ensures authenticity.</p>
+        <h3 class="type-ink mt-4 text-lg">Anti‑Counterfeit Security</h3>
+        <p class="type-ink-soft mt-2 text-sm">Foil‑sealed label technology ensures authenticity.</p>
       </div>
-      <div class="paper-card p-6">
+      <div class="p-6">
         <div class="h-12 w-12 rounded-xl bg-[#eef5ea] grid place-items-center">
           <img src="assets/icon-qr.png" alt="Integration" class="h-6 w-6">
         </div>
-        <h3 class="pressed mt-4 text-lg">Seamless Integration</h3>
-        <p class="pressed-soft mt-2 text-sm">Custom design that complements your product aesthetics.</p>
+        <h3 class="type-ink mt-4 text-lg">Seamless Integration</h3>
+        <p class="type-ink-soft mt-2 text-sm">Custom design that complements your product aesthetics.</p>
       </div>
     </div>
   </section>
 
   <!-- ========================================================= -->
-  <!-- Conversion Section (Lead Capture)                          -->
+  <!-- Conversion Section -->
   <!-- ========================================================= -->
-  <section id="book" class="mt-6">
-    <div class="mx-auto max-w-5xl px-4 py-10 paper-card">
-      <h2 class="pressed text-2xl md:text-3xl">Bring Carbon‑Neutral Packaging to Your Line</h2>
-      <p class="pressed-soft mt-2">We’ll guide you from impact measurement to on‑pack verification.</p>
-      <form id="lead" class="mt-6 grid sm:grid-cols-2 gap-4 max-w-2xl" action="#" method="post">
+  <section id="book" class="mt-6 text-center">
+    <div class="mx-auto max-w-5xl px-4 py-10">
+      <h2 class="type-ink text-2xl md:text-3xl">Bring Carbon‑Neutral Packaging to Your Line</h2>
+      <p class="type-ink-soft mt-2">We’ll guide you from impact measurement to on‑pack verification.</p>
+      <form id="lead" class="mt-6 grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto" action="#" method="post">
         <input required name="name" placeholder="Your Name" class="rounded-md px-4 py-3 bg-white/80 border border-black/10">
         <input required type="email" name="email" placeholder="Work Email" class="rounded-md px-4 py-3 bg-white/80 border border-black/10">
         <input name="company" placeholder="Company" class="rounded-md px-4 py-3 bg-white/80 border border-black/10 sm:col-span-2">
@@ -201,25 +193,25 @@
   </section>
 
   <!-- ========================================================= -->
-  <!-- Footer                                                     -->
+  <!-- Footer -->
   <!-- ========================================================= -->
-  <footer class="mt-8">
-    <div class="mx-auto max-w-5xl px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-4 paper-card">
+  <footer class="mt-8 text-center">
+    <div class="mx-auto max-w-5xl px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-3">
         <img src="assets/logo-seal.png" alt="Evergreen" class="h-8 w-8">
-        <span class="pressed-soft text-sm">Verified Carbon Reduction</span>
+        <span class="type-ink-soft text-sm">Verified Carbon Reduction</span>
       </div>
-      <div class="pressed-soft text-sm flex items-center gap-6">
+      <div class="type-ink-soft text-sm flex items-center gap-6">
         <a href="#">Privacy</a>
         <a href="#">Terms</a>
         <a href="mailto:hello@evergreen.example">Contact</a>
       </div>
     </div>
-    <div class="text-center pressed-soft text-xs py-4">© Evergreen Exchange 2025</div>
+    <div class="text-center type-ink-soft text-xs py-4">© Evergreen Exchange 2025</div>
   </footer>
 
   <!-- ========================================================= -->
-  <!-- Video Modal                                                -->
+  <!-- Video Modal -->
   <!-- ========================================================= -->
   <dialog id="videoModal" class="rounded-xl w-11/12 md:w-3/4 lg:w-1/2 p-0 overflow-hidden">
     <div class="relative bg-black">
@@ -231,8 +223,8 @@
   </dialog>
 
   <script>
-    const modal = document.getElementById('videoModal');
-    const v = document.getElementById('demoVideo');
+    const modal=document.getElementById('videoModal');
+    const v=document.getElementById('demoVideo');
     document.getElementById('watchBtn').addEventListener('click',()=>{modal.showModal();v.currentTime=0;v.play()});
     document.getElementById('watchCard').addEventListener('click',()=>{modal.showModal();v.currentTime=0;v.play()});
     document.getElementById('closeModal').addEventListener('click',()=>{v.pause();modal.close()});
