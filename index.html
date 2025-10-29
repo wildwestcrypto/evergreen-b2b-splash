@@ -169,7 +169,7 @@
         align-items: center;
         justify-content: center;
         border-radius: 50%;
-        background: none; /* Don’t add a background */
+        background: none; /* Don't add a background */
         overflow: visible; /* Allow transparent edges to show */
         box-shadow: none; /* Optional – removes cropping shadow */
       }
@@ -209,6 +209,20 @@
         );
         opacity: 0.35;
         mix-blend-mode: multiply;
+      }
+
+      /* Security feature icons with drop shadow */
+      .security-feature img,
+      .security-feature .color-loop {
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15))
+          drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        transition: filter 0.3s ease, transform 0.3s ease;
+      }
+      .security-feature:hover img,
+      .security-feature:hover .color-loop {
+        filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2))
+          drop-shadow(0 3px 6px rgba(0, 0, 0, 0.15));
+        transform: translateY(-2px);
       }
     </style>
   </head>
@@ -274,8 +288,8 @@
         </button>
         <div class="flex items-center justify-between px-4 py-3">
           <p class="type-ink-soft text-sm">
-            45 sec overview: The importance of sustainability and how Evergreen
-            helps brands earn lasting trust.
+            The importance of sustainability and how Evergreen helps brands earn
+            lasting trust.
           </p>
           <a
             href="#book"
@@ -294,62 +308,70 @@
         Currency-grade security, built into every label.
       </h2>
       <p class="type-ink-soft deboss mt-6 text-sm">
-        Banknote-level protection that safeguards Evergreen’s verified credits —
-        and your product’s authenticity.
+        Banknote-level protection that safeguards Evergreen's verified credits —
+        and your product's authenticity.
       </p>
 
       <div class="mt-6 mx-auto max-w-4xl px-4">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 opacity-95">
-        <figure class="text-center">
-          <div class="h-28 w-full flex items-center justify-center">
-            <img
-              src="assets/intaglio.png"
-              class="max-h-28 w-auto object-contain rounded-md shadow-sm"
-              alt="Engraved Intaglio Printing"
-            />
-          </div>
-          <figcaption class="type-ink-soft deboss text-xs mt-2">
-            Engraved Intaglio
-          </figcaption>
-        </figure>
-        <figure class="text-center">
-          <div class="h-28 w-full flex items-center justify-center">
-            <div
-              class="color-loop"
-              aria-label="Auto-looping color-changing 100 numeral"
-            >
-              <img class="base" src="assets/ovi1.png" alt="Copper 100 numeral" />
-              <img class="top" src="assets/ovi2.png" alt="Green 100 numeral" />
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <figure class="text-center security-feature">
+            <div class="h-28 w-full flex items-center justify-center">
+              <img
+                src="assets/intaglio.png"
+                class="max-h-28 w-auto object-contain rounded-md"
+                alt="Engraved Intaglio Printing"
+              />
             </div>
-          </div>
-          <figcaption class="type-ink-soft deboss text-xs mt-2">
-            Color Changing Text
-          </figcaption>
-        </figure>
-        <figure class="text-center">
-          <div class="h-28 w-full flex items-center justify-center">
-            <img
-              src="assets/qr.png"
-              class="max-h-28 w-auto object-contain rounded-md shadow-sm"
-              alt="QR Scratch Verification Layer"
-            />
-          </div>
-          <figcaption class="type-ink-soft deboss text-xs mt-2">
-            QR Scratch
-          </figcaption>
-        </figure>
-        <figure class="text-center">
-          <div class="h-28 w-full flex items-center justify-center">
-            <img
-              src="assets/fiberpaper.png"
-              class="max-h-28 w-auto object-contain rounded-md shadow-sm"
-              alt="Fluorescent Fiber Banknote Paper"
-            />
-          </div>
-          <figcaption class="type-ink-soft deboss text-xs mt-2">
-            Fluorescent Fiber Paper
-          </figcaption>
-        </figure>
+            <figcaption class="type-ink-soft deboss text-xs mt-2">
+              Engraved Intaglio
+            </figcaption>
+          </figure>
+          <figure class="text-center security-feature">
+            <div class="h-28 w-full flex items-center justify-center">
+              <div
+                class="color-loop"
+                aria-label="Auto-looping color-changing 100 numeral"
+              >
+                <img
+                  class="base"
+                  src="assets/ovi1.png"
+                  alt="Copper 100 numeral"
+                />
+                <img
+                  class="top"
+                  src="assets/ovi2.png"
+                  alt="Green 100 numeral"
+                />
+              </div>
+            </div>
+            <figcaption class="type-ink-soft deboss text-xs mt-2">
+              Color Changing Text
+            </figcaption>
+          </figure>
+          <figure class="text-center security-feature">
+            <div class="h-28 w-full flex items-center justify-center">
+              <img
+                src="assets/qr.png"
+                class="max-h-28 w-auto object-contain rounded-md"
+                alt="QR Scratch Verification Layer"
+              />
+            </div>
+            <figcaption class="type-ink-soft deboss text-xs mt-2">
+              QR Scratch
+            </figcaption>
+          </figure>
+          <figure class="text-center security-feature">
+            <div class="h-28 w-full flex items-center justify-center">
+              <img
+                src="assets/fiberpaper.png"
+                class="max-h-28 w-auto object-contain rounded-md"
+                alt="Fluorescent Fiber Banknote Paper"
+              />
+            </div>
+            <figcaption class="type-ink-soft deboss text-xs mt-2">
+              Fluorescent Fiber Paper
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -386,7 +408,7 @@
             Anti‑Counterfeit Security
           </h3>
           <p class="type-ink-soft deboss mt-2 text-sm">
-            Foil‑sealed label technology ensures authenticity.
+            Layered security technology ensures authenticity.
           </p>
         </div>
         <div class="p-6">
@@ -395,9 +417,11 @@
           >
             <img src="assets/icon-qr.png" alt="Integration" class="h-6 w-6" />
           </div>
-          <h3 class="type-ink deboss mt-4 text-lg">Seamless Integration</h3>
+          <h3 class="type-ink deboss mt-4 text-lg">
+            Accessible Sustainability
+          </h3>
           <p class="type-ink-soft deboss mt-2 text-sm">
-            Custom design that complements your product aesthetics.
+            Entry points for every budget—from test runs to full integration.
           </p>
         </div>
       </div>
@@ -409,10 +433,10 @@
     <section id="book" class="mt-6 text-center">
       <div class="mx-auto max-w-5xl px-4 py-10">
         <h2 class="type-ink deboss text-2xl md:text-3xl">
-          Bring verified carbon reduction to your product line.
+          Bring more green to your product line.
         </h2>
         <p class="type-ink-soft deboss mt-2">
-          We’ll guide you from impact measurement to on-chain verification.
+          Effortless integration, measurable impact.
         </p>
         <form
           id="lead"
