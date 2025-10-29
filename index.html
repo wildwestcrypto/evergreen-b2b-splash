@@ -6,12 +6,12 @@
     <!-- ========================================================= -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>The Evergreen Exchange – Verified Carbon Reduction</title>
-    <meta name="description" content="Add verified carbon reduction to your products with Evergreen Exchange. Secure labels, blockchain verification, measurable impact for B2B brands." />
-    <meta name="keywords" content="verified carbon credits, carbon reduction verification, sustainable product labeling, blockchain carbon credits, anti-counterfeit carbon labels, B2B sustainability solutions, verified climate impact, carbon offset verification, secure carbon offsets, product carbon footprint, environmental verification system, carbon neutral products, sustainability credentials, green business solutions, carbon offset authentication" />
-    <meta property="og:title" content="Evergreen Exchange – Verified Carbon Reduction" />
-    <meta property="og:description" content="Turn sustainability into competitive advantage. Secure, blockchain-verified carbon reduction with banknote-level authentication for your product line." />
-    <meta property="og:image" content="" />
+    <title>Evergreen – Verified Carbon Reduction</title>
+    <meta name="description" content="Products with ESG claims grow 28% faster. Evergreen delivers currency-grade verified carbon credits with blockchain proof—impossible to fake, instant to verify." />
+    <meta name="keywords" content="verified carbon credits, blockchain carbon verification, ESG product claims, anti-counterfeit carbon labels, sustainable product labeling, carbon reduction verification, B2B sustainability solutions" />
+    <meta property="og:title" content="Evergreen Exchange – Verified Climate Impact" />
+    <meta property="og:description" content="Products with ESG claims grow 28% faster. Currency-grade verification with blockchain proof." />
+    <meta property="og:image" content="https://wildwestcrypto.github.io/evergreen-b2b-splash/assets/og-image.jpg" />
     <meta property="og:url" content="https://wildwestcrypto.github.io/evergreen-b2b-splash/" />
     <meta name="twitter:card" content="summary_large_image" />
     <base href="https://wildwestcrypto.github.io/evergreen-b2b-splash/" />
@@ -67,11 +67,6 @@
         background: rgba(0, 0, 0, 0.6);
       }
 
-      .text-green-gradient {
-        background: linear-gradient(135deg, #2f5233 0%, #85bb65 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
       /* OVI motion */
       .color-loop {
         position: relative;
@@ -81,7 +76,7 @@
       .color-loop img {
         display: block;
         max-width: 240px;
-        max-height: 7rem; /* match container height */
+        max-height: 7rem;
         height: auto;
         object-fit: contain;
       }
@@ -111,38 +106,14 @@
         }
       }
 
-      /* Green foil and animation */
-      .foil-green {
-        background: linear-gradient(
-          135deg,
-          #b5d48c 0%,
-          /* highlight */ #5b8f55 30%,
-          /* mid green */ #1f4225 60%,
-          /* deep shadow */ #8fc27a 100% /* reflective fade */
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-size: 200% 200%;
-        animation: foilShift 8s ease-in-out infinite alternate;
-        filter: brightness(1.1) contrast(1.2);
-      }
-      @keyframes foilShift {
-        from {
-          background-position: 0% 50%;
-        }
-        to {
-          background-position: 100% 50%;
-        }
-      }
-
       /* Stronger pressed/debossed ink effect */
       .deboss {
         color: var(--ink);
         letter-spacing: 0.01em;
         text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9),
-          /* top highlight */ 0 -1px 0 rgba(0, 0, 0, 0.12),
-          /* bottom indent */ 0.5px 0.5px 0 rgba(0, 0, 0, 0.04),
-          /* soft shadow */ -0.5px -0.5px 0 rgba(255, 255, 255, 0.35);
+          0 -1px 0 rgba(0, 0, 0, 0.12),
+          0.5px 0.5px 0 rgba(0, 0, 0, 0.04),
+          -0.5px -0.5px 0 rgba(255, 255, 255, 0.35);
         mix-blend-mode: multiply;
       }
 
@@ -162,30 +133,13 @@
         background-color: #2a472f;
         transform: translateY(0);
       }
-      .security-sample {
-        width: 7rem;
-        height: 7rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        background: none; /* Don't add a background */
-        overflow: visible; /* Allow transparent edges to show */
-        box-shadow: none; /* Optional – removes cropping shadow */
-      }
 
-      .security-sample img {
-        width: 100%;
-        height: auto;
-        object-fit: contain; /* Prevents zoom-in cropping */
-      }
-
-      /* Paper-framed media so images/video sit naturally on the page */
+      /* Paper-framed media - FIXED for video */
       .media-paper {
         position: relative;
         border: 1px solid rgba(0, 0, 0, 0.12);
         border-radius: 14px;
-        background: rgba(255, 255, 255, 0.35);
+        background: transparent; /* Changed from rgba(255, 255, 255, 0.35) */
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75),
           inset 0 -1px 0 rgba(0, 0, 0, 0.05), 0 12px 28px rgba(0, 0, 0, 0.18);
         overflow: hidden;
@@ -194,6 +148,7 @@
       .media-paper video {
         display: block;
         width: 100%;
+        height: auto;
         border-radius: 12px;
         filter: contrast(0.95) saturate(0.95) brightness(0.98);
       }
@@ -215,13 +170,13 @@
       .security-feature img,
       .security-feature .color-loop {
         filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15))
-          drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+                drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
         transition: filter 0.3s ease, transform 0.3s ease;
       }
       .security-feature:hover img,
       .security-feature:hover .color-loop {
         filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2))
-          drop-shadow(0 3px 6px rgba(0, 0, 0, 0.15));
+                drop-shadow(0 3px 6px rgba(0, 0, 0, 0.15));
         transform: translateY(-2px);
       }
     </style>
@@ -255,47 +210,110 @@
     <!-- ========================================================= -->
     <!-- Hero Section -->
     <!-- ========================================================= -->
-    <section class="mx-auto max-w-5xl px-4 pt-12 pb-12 text-center">
-      <h1 class="type-ink deboss text-4xl md:text-6xl leading-tight">
-        <span class="text-[#3D6A44]">Grow</span> Forever
-        <span class="text-[#3D6A44]">Green</span>.
+    <section class="mx-auto max-w-5xl px-4 pt-12 pb-6 text-center">
+      <p class="type-ink-soft text-sm uppercase tracking-wide">McKinsey 2023</p>
+      <h1 class="type-ink deboss text-3xl md:text-5xl leading-tight mt-3">
+        ESG Products Grew<br>
+        <span class="text-[#3D6A44] text-5xl md:text-7xl font-bold">28% Faster</span>
       </h1>
-      <p class="type-ink-soft deboss mt-4 text-lg md:text-xl max-w-3xl mx-auto">
-        Earn consumer trust and grow your brand through verified impact.
+      <p class="type-ink-soft deboss mt-4 text-lg md:text-xl max-w-2xl mx-auto">
+        But only when consumers trust them.
       </p>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- Value Bullets -->
+    <!-- ========================================================= -->
+    <section class="mx-auto max-w-3xl px-4 pb-6">
+      <ul class="text-left space-y-3 type-ink text-base md:text-lg">
+        <li class="flex items-start gap-3">
+          <span class="text-[#3D6A44] text-xl font-bold flex-shrink-0">✓</span>
+          <span><strong class="text-[#3D6A44]">Verified Climate Impact</strong> – Real carbon reduction per product</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-[#3D6A44] text-xl font-bold flex-shrink-0">✓</span>
+          <span><strong class="text-[#3D6A44]">Certified Authenticity</strong> – Banknote-level security technology</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-[#3D6A44] text-xl font-bold flex-shrink-0">✓</span>
+          <span><strong class="text-[#3D6A44]">Instant Trust</strong> – Customers scratch, scan, and verify in seconds</span>
+        </li>
+      </ul>
+      
       <div class="mt-7 flex flex-wrap justify-center gap-4">
         <button id="watchBtn" class="btn-gold px-6 py-3 font-semibold">
-          ▶ Watch the Video
+          ▶ See How (45s)
         </button>
         <a href="#book" class="btn-green px-6 py-3 font-semibold text-white"
-          >Book a Call</a
+          >Get Pricing</a
         >
       </div>
+    </section>
 
-      <div class="mt-10 md:mt-12 max-w-4xl mx-auto media-paper">
-        <button id="watchCard" class="relative block group">
-          <img
-            src="assets/video-poster.jpg"
-            alt="Overview video"
-            class="w-full h-auto opacity-95 group-hover:opacity-100 transition rounded-[12px]"
-          />
-          <span class="absolute inset-0 grid place-items-center">
-            <span
-              class="grid place-items-center h-16 w-16 rounded-full bg-[rgba(255,255,255,.96)] text-[var(--forest)] text-xl font-bold shadow"
-              >▶</span
-            >
-          </span>
-        </button>
-        <div class="flex items-center justify-between px-4 py-3">
-          <p class="type-ink-soft text-sm">
-            The importance of sustainability and how Evergreen helps brands earn
-            lasting trust.
-          </p>
-          <a
-            href="#book"
-            class="hidden sm:inline-flex btn-paper px-4 py-2 text-sm font-semibold"
-            >Book a Call</a
-          >
+    <!-- ========================================================= -->
+    <!-- Video Section -->
+    <!-- ========================================================= -->
+    <section class="mx-auto max-w-4xl px-4 pb-12">
+      <div class="media-paper">
+        <video 
+          autoplay 
+          muted 
+          loop 
+          playsinline 
+          class="w-full h-auto rounded-[12px]"
+        >
+          <source src="assets/evergreen-loop-18s.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- Problem Solution Section -->
+    <!-- ========================================================= -->
+    <section id="solution" class="mt-12 py-12 bg-white/20">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-2xl md:text-3xl deboss type-ink mb-8">
+          Why Sustainability Claims Fail
+        </h2>
+        
+        <div class="grid md:grid-cols-2 gap-8 text-left">
+          <!-- The Gap -->
+          <div class="bg-[rgba(255,230,230,0.3)] p-6 rounded-lg border border-black/5">
+            <h3 class="font-bold text-lg mb-4 type-ink">❌ The Gap</h3>
+            <ul class="space-y-3 text-sm type-ink-soft">
+              <li class="flex items-start gap-2">
+                <span class="flex-shrink-0">•</span>
+                <span>Consumers don't trust claims</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="flex-shrink-0">•</span>
+                <span>High costs block brands</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="flex-shrink-0">•</span>
+                <span>No verification standard</span>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Evergreen Solution -->
+          <div class="bg-[rgba(230,255,230,0.3)] p-6 rounded-lg border border-black/5">
+            <h3 class="font-bold text-lg mb-4 text-[#3D6A44]">✓ Evergreen</h3>
+            <ul class="space-y-3 text-sm type-ink-soft">
+              <li class="flex items-start gap-2">
+                <span class="flex-shrink-0">•</span>
+                <span>Instant, scannable proof</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="flex-shrink-0">•</span>
+                <span>Low-cost entry points</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="flex-shrink-0">•</span>
+                <span>Currency-grade security</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -303,13 +321,12 @@
     <!-- ========================================================= -->
     <!-- Proof Section -->
     <!-- ========================================================= -->
-    <section id="proof" class="mt-6 text-center">
+    <section id="proof" class="mt-12 text-center">
       <h2 class="type-ink deboss text-xl">
         Currency-grade security, built into every label.
       </h2>
-      <p class="type-ink-soft deboss mt-6 text-sm">
-        Banknote-level protection that safeguards Evergreen's verified carbon reduction —
-        and your product's authenticity.
+      <p class="type-ink-soft deboss mt-6 text-sm max-w-2xl mx-auto">
+        Banknote-level protection that safeguards Evergreen's verified credits—and your product's authenticity.
       </p>
 
       <div class="mt-6 mx-auto max-w-4xl px-4">
@@ -377,63 +394,12 @@
     </section>
 
     <!-- ========================================================= -->
-    <!-- Solution Section -->
-    <!-- ========================================================= -->
-    <section id="solution" class="mt-6">
-      <div class="mx-auto max-w-5xl px-4 py-10 grid md:grid-cols-3 gap-6">
-        <div class="p-6">
-          <div
-            class="h-12 w-12 rounded-xl bg-[#eef5ea] grid place-items-center"
-          >
-            <img
-              src="assets/icon-verified.png"
-              alt="Verified"
-              class="h-6 w-6"
-            />
-          </div>
-          <h3 class="type-ink deboss mt-4 text-lg">
-            Verified Carbon Reduction
-          </h3>
-          <p class="type-ink-soft deboss mt-2 text-sm">
-            Proof of real climate impact per product unit.
-          </p>
-        </div>
-        <div class="p-6">
-          <div
-            class="h-12 w-12 rounded-xl bg-[#eef5ea] grid place-items-center"
-          >
-            <img src="assets/icon-shield.png" alt="Security" class="h-6 w-6" />
-          </div>
-          <h3 class="type-ink deboss mt-4 text-lg">
-            Anti‑Counterfeit Security
-          </h3>
-          <p class="type-ink-soft deboss mt-2 text-sm">
-            Layered security technology ensures authenticity.
-          </p>
-        </div>
-        <div class="p-6">
-          <div
-            class="h-12 w-12 rounded-xl bg-[#eef5ea] grid place-items-center"
-          >
-            <img src="assets/icon-qr.png" alt="Integration" class="h-6 w-6" />
-          </div>
-          <h3 class="type-ink deboss mt-4 text-lg">
-            Accessible Sustainability
-          </h3>
-          <p class="type-ink-soft deboss mt-2 text-sm">
-            Entry points for every budget—from test runs to full integration.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================================= -->
     <!-- Conversion Section -->
     <!-- ========================================================= -->
-    <section id="book" class="mt-6 text-center">
+    <section id="book" class="mt-12 text-center">
       <div class="mx-auto max-w-5xl px-4 py-10">
         <h2 class="type-ink deboss text-2xl md:text-3xl">
-          Bring more green to your product line.
+          Ready to grow green?
         </h2>
         <p class="type-ink-soft deboss mt-2">
           Effortless integration, measurable impact.
@@ -523,11 +489,6 @@
         v.currentTime = 0;
         v.play();
       });
-      document.getElementById('watchCard').addEventListener('click', () => {
-        modal.showModal();
-        v.currentTime = 0;
-        v.play();
-      });
       document.getElementById('closeModal').addEventListener('click', () => {
         v.pause();
         modal.close();
@@ -539,5 +500,3 @@
     </script>
   </body>
 </html>
-
-
