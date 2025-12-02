@@ -42,9 +42,9 @@
     --gold: #d1b26b;
     --ink: #141518;
     --ink-soft: #535763;
-    --forest: #507a6f;   /* brand evergreen */
-    --ovi-green: #178F6F; /* hero highlight green */
-    --cream: #f3f3eb;    /* banknote paper white */
+    --forest: #507a6f;    /* brand evergreen */
+    --ovi-green: #178f6f; /* toned-down OVI green */
+    --cream: #f3f3eb;     /* banknote paper white */
     --bg: #050708;
   }
 
@@ -180,15 +180,11 @@
     position: relative;
     border: 1px solid rgba(0, 0, 0, 0.18);
     border-radius: 16px;
-
-    /* cool-toned overlay replacing warm beige */
     background: rgba(12, 16, 18, 0.88); /* deep cool ink-black */
-
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
     overflow: hidden;
   }
 
-  /* Inner frame still evergreen */
   .media-paper::before {
     content: '';
     position: absolute;
@@ -198,19 +194,15 @@
     pointer-events: none;
   }
 
-  /* Keep video appearance untouched except subtly cooler */
   .media-paper img,
   .media-paper video {
     display: block;
     width: 100%;
     height: auto;
     border-radius: 12px;
-
-    /* subtle cool tone for unity with dark stage */
     filter: contrast(0.96) saturate(0.94) brightness(0.97);
   }
 
-  /* Vignette stays the same but works better on cool backdrop */
   .media-paper::after {
     content: '';
     position: absolute;
@@ -225,9 +217,62 @@
     mix-blend-mode: multiply;
   }
 
-  /* Problem/solution band */
+  /* ============================================================
+     MIDDLE SECTION: "Why Sustainability Claims Struggle"
+     ============================================================ */
+
   #solution {
-    background-color: rgba(245, 242, 226, 0.12);
+    position: relative;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    background: transparent !important; /* kill bg-white/20 from Tailwind */
+  }
+
+  #solution::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at center,
+      rgba(10, 12, 14, 0.85),
+      transparent 70%
+    );
+    z-index: -1;
+  }
+
+  #solution h2 {
+    color: var(--cream);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.7);
+    mix-blend-mode: normal;
+  }
+
+  #solution .type-ink-soft {
+    color: #4a4f5a;
+    text-shadow: none;
+    mix-blend-mode: normal;
+  }
+
+  .solution-card {
+    background: rgba(243, 240, 232, 0.96); /* light banknote paper */
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+  }
+
+  .solution-card--gap {
+    border-top: 3px solid #c66166; /* muted red */
+  }
+
+  .solution-card--evergreen {
+    border-top: 3px solid var(--forest);
+  }
+
+  .solution-card h3 {
+    color: #262629;
+  }
+
+  .solution-card .solution-accent {
+    font-weight: 700;
   }
 
   /* Footer rule */
@@ -247,7 +292,6 @@
     padding: 3.5rem 1.5rem 2.5rem;
   }
 
-  /* Soft spotlight, no hard box */
   .hero-band::before {
     content: "";
     position: absolute;
@@ -274,13 +318,11 @@
     mix-blend-mode: normal;
   }
 
-  /* Hero highlights: OVI green */
   .hero-band .hero-highlight {
     color: var(--ovi-green);
-    text-shadow: 0 0 10px rgba(0, 168, 107, 0.25);
+    text-shadow: 0 0 10px rgba(23, 143, 111, 0.25);
   }
 
-  /* Solution section evergreen heading */
   .solution-green {
     color: var(--forest);
   }
@@ -298,31 +340,26 @@
       line-height: 1.25;
     }
 
-    /* ONLY the 28% Faster span gets big */
     .hero-band h1 .hero-highlight {
       font-size: 2rem;
       display: block;
       margin-top: 0.15rem;
     }
 
-    /* Bullet list text slightly smaller */
     .hero-band ul {
       font-size: 0.98rem;
     }
 
-    /* Bullet titles + checkmarks stay reasonable size */
     .hero-band li .hero-highlight {
       font-size: 1rem;
       font-weight: 600;
     }
 
-    /* The ✓ icon (direct child span) a touch larger than title */
     .hero-band li > .hero-highlight {
       font-size: 1.25rem;
       margin-top: 0.05rem;
     }
 
-    /* Tighten spacing above/below video so it’s not cut off */
     section.mx-auto.max-w-4xl.px-4.pb-12 {
       padding-top: 0.5rem;
       padding-bottom: 2.25rem;
@@ -434,63 +471,63 @@
     <!-- ========================================================= -->
     <!-- Problem Solution Section -->
     <!-- ========================================================= -->
-    <section id="solution" class="mt-12 py-12 bg-white/20">
-      <div class="max-w-4xl mx-auto px-4 text-center">
-        <h2 class="text-2xl md:text-3xl deboss type-ink mb-8">
-          Why Sustainability Claims Struggle
-        </h2>
+    <section id="solution" class="mt-12 py-12">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <h2 class="text-2xl md:text-3xl deboss type-ink mb-8">
+      Why Sustainability Claims Struggle
+    </h2>
 
-        <div class="grid md:grid-cols-2 gap-8 text-left">
-          <!-- The Gap -->
-          <div
-            class="bg-[rgba(255,230,230,0.3)] p-6 rounded-lg border border-black/5"
-          >
-            <h3 class="font-bold text-lg mb-4 type-ink">❌ The Gap</h3>
-            <ul class="space-y-3 text-sm type-ink-soft">
-              <li class="flex items-start gap-2">
-                <span class="flex-shrink-0">•</span>
-                <span>Consumers can't decode claims (46%*)</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="flex-shrink-0">•</span>
-                <span>Consumers don't trust claims (57%**)</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="flex-shrink-0">•</span>
-                <span>High investment requirements (25%***)</span>
-              </li>
-            </ul>
-            <p class="text-xs mt-4 italic">
-              *Deloitte 2023 **Simon Kucher 2024 ***Morgan Stanley 2025
-            </p>
-          </div>
-
-          <!-- Evergreen Solution -->
-          <div
-            class="bg-[rgba(230,255,230,0.3)] p-6 rounded-lg border border-black/5"
-          >
-            <h3 class="font-bold text-lg mb-4 solution-green">✓ Evergreen</h3>
-            <ul class="space-y-3 text-sm type-ink-soft">
-              <li class="flex items-start gap-2">
-                <span class="flex-shrink-0">•</span>
-                <span>One click - instant messaging and claim details</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="flex-shrink-0">•</span>
-                <span>Blockchain backed full transparency</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="flex-shrink-0">•</span>
-                <span
-                  >Low-cost pilot programs, simple implementation, measurable
-                  ROI</span
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
+    <div class="grid md:grid-cols-2 gap-8 text-left">
+      <!-- The Gap -->
+      <div class="solution-card solution-card--gap p-6">
+        <h3 class="font-bold text-lg mb-4 type-ink">
+          <span class="solution-accent">❌ The Gap</span>
+        </h3>
+        <ul class="space-y-3 text-sm type-ink-soft">
+          <li class="flex items-start gap-2">
+            <span class="flex-shrink-0">•</span>
+            <span>Consumers can't decode claims (46%*)</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="flex-shrink-0">•</span>
+            <span>Consumers don't trust claims (57%**)</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="flex-shrink-0">•</span>
+            <span>High investment requirements (25%***)</span>
+          </li>
+        </ul>
+        <p class="text-xs mt-4 italic type-ink-soft">
+          *Deloitte 2023 **Simon Kucher 2024 ***Morgan Stanley 2025
+        </p>
       </div>
-    </section>
+
+      <!-- Evergreen Solution -->
+      <div class="solution-card solution-card--evergreen p-6">
+        <h3 class="font-bold text-lg mb-4 solution-green solution-accent">
+          ✓ Evergreen
+        </h3>
+        <ul class="space-y-3 text-sm type-ink-soft">
+          <li class="flex items-start gap-2">
+            <span class="flex-shrink-0">•</span>
+            <span>One click - instant messaging and claim details</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="flex-shrink-0">•</span>
+            <span>Blockchain backed full transparency</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="flex-shrink-0">•</span>
+            <span>
+              Low-cost pilot programs, simple implementation, measurable ROI
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <!-- ========================================================= -->
     <!-- Proof Section -->
@@ -622,6 +659,7 @@
     </script>
   </body>
 </html>
+
 
 
 
