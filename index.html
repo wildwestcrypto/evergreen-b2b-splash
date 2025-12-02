@@ -42,8 +42,8 @@
         --gold: #d1b26b;
         --ink: #141518;
         --ink-soft: #535763;
-        --forest: #48615b;   /* brand evergreen */
-        --ovi-green: #00a86b; /* hero highlight green */
+        --forest: #507A6F;   /* brand evergreen */
+        --ovi-green: #00916A; /* hero highlight green */
         --cream: #f3f3eb;    /* banknote paper white */
         --bg: #050708;
       }
@@ -175,47 +175,55 @@
         }
       }
 
-      /* Paper-framed media (videos) */
-      .media-paper {
-        position: relative;
-        border: 1px solid rgba(0, 0, 0, 0.18);
-        border-radius: 16px;
-        background: var(--cream);
-        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
-        overflow: hidden;
-      }
+      /* Paper-framed media (videos) — COOL STAGE MATCH */
+.media-paper {
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  border-radius: 16px;
 
-      .media-paper::before {
-        content: '';
-        position: absolute;
-        inset: 10px;
-        border-radius: 12px;
-        border: 1px solid rgba(72, 97, 91, 0.6); /* inner green frame */
-        pointer-events: none;
-      }
+  /* NEW: cool-toned overlay replacing warm beige */
+  background: rgba(12, 16, 18, 0.88); /* deep cool ink-black */
 
-      .media-paper img,
-      .media-paper video {
-        display: block;
-        width: 100%;
-        height: auto;
-        border-radius: 12px;
-        filter: contrast(0.96) saturate(0.96) brightness(0.99);
-      }
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+}
 
-      .media-paper::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        background: radial-gradient(
-          ellipse at center,
-          rgba(0, 0, 0, 0.08),
-          transparent 55%
-        );
-        opacity: 0.32;
-        mix-blend-mode: multiply;
-      }
+/* Inner frame still evergreen */
+.media-paper::before {
+  content: '';
+  position: absolute;
+  inset: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(72, 97, 91, 0.6); /* inner evergreen frame */
+  pointer-events: none;
+}
+
+/* Keep video appearance untouched except subtly cooler */
+.media-paper img,
+.media-paper video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+
+  /* NEW: subtle cool tone for unity with dark stage */
+  filter: contrast(0.96) saturate(0.94) brightness(0.97);
+}
+
+/* Vignette stays the same but works better on cool backdrop */
+.media-paper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.08),
+    transparent 55%
+  );
+  opacity: 0.32;
+  mix-blend-mode: multiply;
+}
 
       /* Problem/solution band */
       #solution {
@@ -593,4 +601,5 @@
     </script>
   </body>
 </html>
+
 
