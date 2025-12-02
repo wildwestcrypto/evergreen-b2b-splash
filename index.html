@@ -236,6 +236,47 @@
   footer {
     border-top: 1px solid rgba(209, 178, 107, 0.28);
   }
+      /* Hero text on dark background – no cream card, just a soft spotlight */
+
+.hero-dark {
+  position: relative;
+  max-width: 64rem; /* similar to max-w-5xl */
+  margin: 0 auto;
+  padding: 3rem 1.5rem 2.5rem;
+}
+
+/* soft light patch behind the text so it pops */
+.hero-dark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top center,
+    rgba(245, 242, 226, 0.28),
+    transparent 65%
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Override “ink” styles when they sit on dark */
+.hero-dark .type-ink,
+.hero-dark .deboss {
+  color: #f5f2e2; /* light cream */
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.55);
+  mix-blend-mode: normal;
+}
+
+.hero-dark .type-ink-soft {
+  color: #c2c8d4;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+  mix-blend-mode: normal;
+}
+
+/* make the big 28% pop more on dark */
+.hero-dark span.text-[#3D6A44] {
+  color: #7ad29a; /* brighter but still green; tweak if you like */
+}
 </style>
   </head>
 
@@ -266,7 +307,7 @@
     <!-- ========================================================= -->
     <!-- Hero Section -->
     <!-- ========================================================= -->
-    <section class="mx-auto max-w-5xl px-4 pt-12 pb-6 text-center">
+    <section class="hero-dark mx-auto max-w-5xl px-4 pt-12 pb-6 text-center">
       <p class="type-ink-soft text-sm uppercase tracking-wide">McKinsey 2023</p>
       <h1 class="type-ink deboss text-3xl md:text-5xl leading-tight mt-3">
         ESG Products Grew<br />
@@ -279,7 +320,7 @@
     <!-- ========================================================= -->
     <!-- Value Bullets -->
     <!-- ========================================================= -->
-    <section class="mx-auto max-w-3xl px-4 pb-6">
+   <section class="hero-dark mx-auto max-w-3xl px-4 pb-6">
       <ul class="text-left space-y-3 type-ink text-base md:text-lg">
         <li class="flex items-start gap-3">
           <span class="text-[#3D6A44] text-xl font-bold flex-shrink-0">✓</span>
@@ -521,5 +562,6 @@
     </script>
   </body>
 </html>
+
 
 
