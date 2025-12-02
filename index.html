@@ -42,8 +42,9 @@
         --gold: #d1b26b;
         --ink: #141518;
         --ink-soft: #535763;
-        --forest: #48615b;  /* premium evergreen */
-        --cream: #f3f3eb;   /* banknote paper white */
+        --forest: #48615b;   /* brand evergreen */
+        --ovi-green: #00a86b; /* hero highlight green */
+        --cream: #f3f3eb;    /* banknote paper white */
         --bg: #050708;
       }
 
@@ -72,6 +73,7 @@
       header nav a {
         color: #c2c8d4;
       }
+
       header nav a:hover {
         color: #ffffff;
       }
@@ -225,7 +227,11 @@
         border-top: 1px solid rgba(209, 178, 107, 0.28);
       }
 
-      /* Unified hero band (headline + bullets) */
+      /* ============================================================
+         HERO BAND (headline + bullets)
+         Base ink = cream
+         Highlight = OVI green
+         ============================================================ */
       .hero-band {
         position: relative;
         max-width: 64rem;
@@ -245,8 +251,6 @@
         );
         pointer-events: none;
         z-index: -1;
-        border: none;
-        box-shadow: none;
       }
 
       .hero-band .type-ink,
@@ -262,8 +266,14 @@
         mix-blend-mode: normal;
       }
 
-      .hero-band span.text-[#48615B],
-      .hero-band .text-[#48615B] {
+      /* Hero highlights: OVI green */
+      .hero-band .hero-highlight {
+        color: var(--ovi-green);
+        text-shadow: 0 0 10px rgba(0, 168, 107, 0.25);
+      }
+
+      /* Solution section evergreen heading */
+      .solution-green {
         color: var(--forest);
       }
 
@@ -279,7 +289,7 @@
           font-size: 1.9rem;
         }
 
-        .hero-band span.text-[#48615B] {
+        .hero-band .hero-highlight {
           font-size: 2.3rem;
           display: block;
           margin-top: 0.2rem;
@@ -333,7 +343,7 @@
         </p>
         <h1 class="type-ink deboss text-3xl md:text-5xl leading-tight mt-3">
           ESG Products Grew<br />
-          <span class="text-[#48615B] text-5xl md:text-7xl font-bold">
+          <span class="hero-highlight text-5xl md:text-7xl font-bold">
             28% Faster
           </span>
         </h1>
@@ -343,23 +353,23 @@
       <section class="mx-auto max-w-3xl px-4 pb-2">
         <ul class="text-left space-y-3 type-ink text-base md:text-lg">
           <li class="flex items-start gap-3">
-            <span class="text-[#48615B] text-xl font-bold flex-shrink-0">✓</span>
+            <span class="hero-highlight text-xl font-bold flex-shrink-0">✓</span>
             <span>
-              <strong class="text-[#48615B]">Low-cost Pilot Program</strong> –
+              <strong class="hero-highlight">Low-cost Pilot Program</strong> –
               Data driven entry level testing
             </span>
           </li>
           <li class="flex items-start gap-3">
-            <span class="text-[#48615B] text-xl font-bold flex-shrink-0">✓</span>
+            <span class="hero-highlight text-xl font-bold flex-shrink-0">✓</span>
             <span>
-              <strong class="text-[#48615B]">Effortless Implementation</strong> –
+              <strong class="hero-highlight">Effortless Implementation</strong> –
               2 step solution
             </span>
           </li>
           <li class="flex items-start gap-3">
-            <span class="text-[#48615B] text-xl font-bold flex-shrink-0">✓</span>
+            <span class="hero-highlight text-xl font-bold flex-shrink-0">✓</span>
             <span>
-              <strong class="text-[#48615B]">Verified Climate Impact</strong> –
+              <strong class="hero-highlight">Verified Climate Impact</strong> –
               Real carbon reduction per product
             </span>
           </li>
@@ -430,7 +440,7 @@
           <div
             class="bg-[rgba(230,255,230,0.3)] p-6 rounded-lg border border-black/5"
           >
-            <h3 class="font-bold text-lg mb-4" style="color: var(--forest)">✓ Evergreen</h3>
+            <h3 class="font-bold text-lg mb-4 solution-green">✓ Evergreen</h3>
             <ul class="space-y-3 text-sm type-ink-soft">
               <li class="flex items-start gap-2">
                 <span class="flex-shrink-0">•</span>
