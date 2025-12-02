@@ -37,282 +37,303 @@
     <!-- Tailwind (no build step) -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <style>
-      :root {
-        --gold: #d1b26b;
-        --ink: #141518;
-        --ink-soft: #535763;
-        --forest: #507A6F;   /* brand evergreen */
-        --ovi-green: #00916A; /* hero highlight green */
-        --cream: #f3f3eb;    /* banknote paper white */
-        --bg: #050708;
-      }
+   <style>
+  :root {
+    --gold: #d1b26b;
+    --ink: #141518;
+    --ink-soft: #535763;
+    --forest: #507a6f;   /* brand evergreen */
+    --ovi-green: #178F6F; /* hero highlight green */
+    --cream: #f3f3eb;    /* banknote paper white */
+    --bg: #050708;
+  }
 
-      body {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Inter',
-          sans-serif;
-        color: var(--ink);
-        background: radial-gradient(circle at top left, #101821 0, var(--bg) 52%);
-        background-attachment: fixed;
-      }
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Inter',
+      sans-serif;
+    color: var(--ink);
+    background: radial-gradient(circle at top left, #101821 0, var(--bg) 52%);
+    background-attachment: fixed;
+  }
 
-      /* Top bar over dark */
-      header.sticky.top-0 {
-        background-color: rgba(5, 7, 8, 0.94) !important;
-        border-bottom: 1px solid rgba(209, 178, 107, 0.35);
-      }
+  /* Top bar over dark */
+  header.sticky.top-0 {
+    background-color: rgba(5, 7, 8, 0.94) !important;
+    border-bottom: 1px solid rgba(209, 178, 107, 0.35);
+  }
 
-      /* Make header text visible on dark */
-      header .type-ink,
-      header .type-ink-soft {
-        color: #f5f2e2;
-        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
-        mix-blend-mode: normal;
-      }
+  /* Make header text visible on dark */
+  header .type-ink,
+  header .type-ink-soft {
+    color: #f5f2e2;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
+    mix-blend-mode: normal;
+  }
 
-      header nav a {
-        color: #c2c8d4;
-      }
+  header nav a {
+    color: #c2c8d4;
+  }
 
-      header nav a:hover {
-        color: #ffffff;
-      }
+  header nav a:hover {
+    color: #ffffff;
+  }
 
-      /* Ink styles (for light sections; overridden inside hero-band) */
-      .type-ink {
-        color: var(--ink);
-        letter-spacing: 0.01em;
-        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9),
-          0 -1px 0 rgba(0, 0, 0, 0.14), 0.5px 0.5px 0 rgba(0, 0, 0, 0.04),
-          -0.5px -0.5px 0 rgba(255, 255, 255, 0.35);
-        mix-blend-mode: multiply;
-      }
+  /* Ink styles (for light sections; overridden inside hero-band) */
+  .type-ink {
+    color: var(--ink);
+    letter-spacing: 0.01em;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9),
+      0 -1px 0 rgba(0, 0, 0, 0.14), 0.5px 0.5px 0 rgba(0, 0, 0, 0.04),
+      -0.5px -0.5px 0 rgba(255, 255, 255, 0.35);
+    mix-blend-mode: multiply;
+  }
 
-      .type-ink-soft {
-        color: var(--ink-soft);
-        letter-spacing: 0.01em;
-        text-shadow: 0.4px 0.4px 0 rgba(255, 255, 255, 0.75),
-          -0.3px -0.5px 0 rgba(0, 0, 0, 0.05);
-        mix-blend-mode: multiply;
-      }
+  .type-ink-soft {
+    color: var(--ink-soft);
+    letter-spacing: 0.01em;
+    text-shadow: 0.4px 0.4px 0 rgba(255, 255, 255, 0.75),
+      -0.3px -0.5px 0 rgba(0, 0, 0, 0.05);
+    mix-blend-mode: multiply;
+  }
 
-      .deboss {
-        color: var(--ink);
-        letter-spacing: 0.01em;
-        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.92),
-          0 -1px 0 rgba(0, 0, 0, 0.16), 0.5px 0.5px 0 rgba(0, 0, 0, 0.04),
-          -0.5px -0.5px 0 rgba(255, 255, 255, 0.4);
-        mix-blend-mode: multiply;
-      }
+  .deboss {
+    color: var(--ink);
+    letter-spacing: 0.01em;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.92),
+      0 -1px 0 rgba(0, 0, 0, 0.16), 0.5px 0.5px 0 rgba(0, 0, 0, 0.04),
+      -0.5px -0.5px 0 rgba(255, 255, 255, 0.4);
+    mix-blend-mode: multiply;
+  }
 
-      /* Buttons */
-      .btn-gold {
-        background: linear-gradient(135deg, var(--gold), #e0c878);
-        color: #111111;
-        border-radius: 10px;
-      }
+  /* Buttons */
+  .btn-gold {
+    background: linear-gradient(135deg, var(--gold), #e0c878);
+    color: #111111;
+    border-radius: 10px;
+  }
 
-      .btn-green {
-        background-color: var(--forest);
-        border: 1px solid #2f4a3d;
-        border-radius: 10px;
-        color: #fff;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-        transition: background-color 0.2s ease, transform 0.1s ease;
-      }
+  .btn-green {
+    background-color: var(--forest);
+    border: 1px solid #2f4a3d;
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.2s ease, transform 0.1s ease;
+  }
 
-      .btn-green:hover {
-        background-color: #324b43;
-        transform: translateY(-1px);
-      }
+  .btn-green:hover {
+    background-color: #324b43;
+    transform: translateY(-1px);
+  }
 
-      .btn-green:active {
-        background-color: #293c36;
-        transform: translateY(0);
-      }
+  .btn-green:active {
+    background-color: #293c36;
+    transform: translateY(0);
+  }
 
-      dialog::backdrop {
-        background: rgba(0, 0, 0, 0.9); /* darker so background video doesn't distract */
-      }
+  dialog::backdrop {
+    background: rgba(0, 0, 0, 0.9); /* darker so background video doesn't distract */
+  }
 
-      /* OVI motion (if used later) */
-      .color-loop {
-        position: relative;
-        display: inline-block;
-        line-height: 0;
-      }
+  /* OVI motion (if used later) */
+  .color-loop {
+    position: relative;
+    display: inline-block;
+    line-height: 0;
+  }
 
-      .color-loop img {
-        display: block;
-        max-width: 240px;
-        max-height: 7rem;
-        height: auto;
-        object-fit: contain;
-      }
+  .color-loop img {
+    display: block;
+    max-width: 240px;
+    max-height: 7rem;
+    height: auto;
+    object-fit: contain;
+  }
 
-      .color-loop .top {
-        position: absolute;
-        inset: 0;
-        animation: inkShift 1.8s ease-in-out infinite;
-      }
+  .color-loop .top {
+    position: absolute;
+    inset: 0;
+    animation: inkShift 1.8s ease-in-out infinite;
+  }
 
-      @keyframes inkShift {
-        0% {
-          opacity: 0;
-        }
-        50% {
-          opacity: 1;
-        }
-        100% {
-          opacity: 0;
-        }
-      }
+  @keyframes inkShift {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
 
-      @media (prefers-reduced-motion: reduce) {
-        .color-loop .top {
-          animation: none;
-          opacity: 0;
-        }
-      }
+  @media (prefers-reduced-motion: reduce) {
+    .color-loop .top {
+      animation: none;
+      opacity: 0;
+    }
+  }
 
-      /* Paper-framed media (videos) — COOL STAGE MATCH */
-.media-paper {
-  position: relative;
-  border: 1px solid rgba(0, 0, 0, 0.18);
-  border-radius: 16px;
+  /* Paper-framed media (videos) — COOL STAGE MATCH */
+  .media-paper {
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    border-radius: 16px;
 
-  /* NEW: cool-toned overlay replacing warm beige */
-  background: rgba(12, 16, 18, 0.88); /* deep cool ink-black */
+    /* cool-toned overlay replacing warm beige */
+    background: rgba(12, 16, 18, 0.88); /* deep cool ink-black */
 
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
-  overflow: hidden;
-}
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+    overflow: hidden;
+  }
 
-/* Inner frame still evergreen */
-.media-paper::before {
-  content: '';
-  position: absolute;
-  inset: 10px;
-  border-radius: 12px;
-  border: 1px solid rgba(72, 97, 91, 0.6); /* inner evergreen frame */
-  pointer-events: none;
-}
+  /* Inner frame still evergreen */
+  .media-paper::before {
+    content: '';
+    position: absolute;
+    inset: 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(72, 97, 91, 0.6); /* inner evergreen frame */
+    pointer-events: none;
+  }
 
-/* Keep video appearance untouched except subtly cooler */
-.media-paper img,
-.media-paper video {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
+  /* Keep video appearance untouched except subtly cooler */
+  .media-paper img,
+  .media-paper video {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
 
-  /* NEW: subtle cool tone for unity with dark stage */
-  filter: contrast(0.96) saturate(0.94) brightness(0.97);
-}
+    /* subtle cool tone for unity with dark stage */
+    filter: contrast(0.96) saturate(0.94) brightness(0.97);
+  }
 
-/* Vignette stays the same but works better on cool backdrop */
-.media-paper::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(0, 0, 0, 0.08),
-    transparent 55%
-  );
-  opacity: 0.32;
-  mix-blend-mode: multiply;
-}
+  /* Vignette stays the same but works better on cool backdrop */
+  .media-paper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(0, 0, 0, 0.08),
+      transparent 55%
+    );
+    opacity: 0.32;
+    mix-blend-mode: multiply;
+  }
 
-      /* Problem/solution band */
-      #solution {
-        background-color: rgba(245, 242, 226, 0.12);
-      }
+  /* Problem/solution band */
+  #solution {
+    background-color: rgba(245, 242, 226, 0.12);
+  }
 
-      /* Footer rule */
-      footer {
-        border-top: 1px solid rgba(209, 178, 107, 0.28);
-      }
+  /* Footer rule */
+  footer {
+    border-top: 1px solid rgba(209, 178, 107, 0.28);
+  }
 
-      /* ============================================================
-         HERO BAND (headline + bullets)
-         Base ink = cream
-         Highlight = OVI green
-         ============================================================ */
-      .hero-band {
-        position: relative;
-        max-width: 64rem;
-        margin: 0 auto 3rem;
-        padding: 3.5rem 1.5rem 2.5rem;
-      }
+  /* ============================================================
+     HERO BAND (headline + bullets)
+     Base ink = cream
+     Highlight = OVI green
+     ============================================================ */
+  .hero-band {
+    position: relative;
+    max-width: 64rem;
+    margin: 0 auto 3rem;
+    padding: 3.5rem 1.5rem 2.5rem;
+  }
 
-      /* Soft spotlight, no hard box */
-      .hero-band::before {
-        content: "";
-        position: absolute;
-        inset: -40px 0 -10px;
-        background: radial-gradient(
-          circle at top center,
-          rgba(243, 243, 235, 0.25),
-          transparent 70%
-        );
-        pointer-events: none;
-        z-index: -1;
-      }
+  /* Soft spotlight, no hard box */
+  .hero-band::before {
+    content: "";
+    position: absolute;
+    inset: -40px 0 -10px;
+    background: radial-gradient(
+      circle at top center,
+      rgba(243, 243, 235, 0.25),
+      transparent 70%
+    );
+    pointer-events: none;
+    z-index: -1;
+  }
 
-      .hero-band .type-ink,
-      .hero-band .deboss {
-        color: var(--cream);
-        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.7);
-        mix-blend-mode: normal;
-      }
+  .hero-band .type-ink,
+  .hero-band .deboss {
+    color: var(--cream);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.7);
+    mix-blend-mode: normal;
+  }
 
-      .hero-band .type-ink-soft {
-        color: #c2c8d4;
-        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
-        mix-blend-mode: normal;
-      }
+  .hero-band .type-ink-soft {
+    color: #c2c8d4;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+    mix-blend-mode: normal;
+  }
 
-      /* Hero highlights: OVI green */
-      .hero-band .hero-highlight {
-        color: var(--ovi-green);
-        text-shadow: 0 0 10px rgba(0, 168, 107, 0.25);
-      }
+  /* Hero highlights: OVI green */
+  .hero-band .hero-highlight {
+    color: var(--ovi-green);
+    text-shadow: 0 0 10px rgba(0, 168, 107, 0.25);
+  }
 
-      /* Solution section evergreen heading */
-      .solution-green {
-        color: var(--forest);
-      }
+  /* Solution section evergreen heading */
+  .solution-green {
+    color: var(--forest);
+  }
 
-      /* Mobile tightening */
-      @media (max-width: 640px) {
-        .hero-band {
-          margin-top: 1.6rem;
-          margin-bottom: 2rem;
-          padding: 2rem 1.1rem 1.6rem;
-        }
+  /* Mobile tightening */
+  @media (max-width: 640px) {
+    .hero-band {
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
+      padding: 1.75rem 1.1rem 1.25rem;
+    }
 
-        .hero-band h1 {
-          font-size: 1.9rem;
-        }
+    .hero-band h1 {
+      font-size: 1.6rem;
+      line-height: 1.25;
+    }
 
-        .hero-band .hero-highlight {
-          font-size: 2.3rem;
-          display: block;
-          margin-top: 0.2rem;
-        }
+    /* ONLY the 28% Faster span gets big */
+    .hero-band h1 .hero-highlight {
+      font-size: 2rem;
+      display: block;
+      margin-top: 0.15rem;
+    }
 
-        section.mx-auto.max-w-4xl.px-4.pb-12 {
-          padding-top: 0.5rem;
-          padding-bottom: 2.5rem;
-        }
+    /* Bullet list text slightly smaller */
+    .hero-band ul {
+      font-size: 0.98rem;
+    }
 
-        .media-paper {
-          margin-top: 0.4rem;
-        }
-      }
-    </style>
+    /* Bullet titles + checkmarks stay reasonable size */
+    .hero-band li .hero-highlight {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    /* The ✓ icon (direct child span) a touch larger than title */
+    .hero-band li > .hero-highlight {
+      font-size: 1.25rem;
+      margin-top: 0.05rem;
+    }
+
+    /* Tighten spacing above/below video so it’s not cut off */
+    section.mx-auto.max-w-4xl.px-4.pb-12 {
+      padding-top: 0.5rem;
+      padding-bottom: 2.25rem;
+    }
+
+    .media-paper {
+      margin-top: 0.3rem;
+    }
+  }
+</style>
+
   </head>
 
   <body class="antialiased">
@@ -601,5 +622,6 @@
     </script>
   </body>
 </html>
+
 
 
