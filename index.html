@@ -60,6 +60,20 @@
     background-color: rgba(5, 7, 8, 0.94) !important;
     border-bottom: 1px solid rgba(209, 178, 107, 0.35);
   }
+  /* Make header text visible on dark */
+    header .type-ink,
+    header .type-ink-soft {
+      color: #f5f2e2;
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
+      mix-blend-mode: normal;
+  }
+      
+header nav a {
+  color: #c2c8d4;
+}
+header nav a:hover {
+  color: #ffffff;
+}
 
   /* Ink styles (for light sections; overridden inside hero-band) */
   .type-ink {
@@ -203,36 +217,30 @@
     border-top: 1px solid rgba(209, 178, 107, 0.28);
   }
 
-  /* Unified hero band (headline + bullets) */
-  .hero-band {
-    position: relative;
-    max-width: 64rem;
-    margin: 0 auto 2.5rem;
-    padding: 3rem 1.5rem 2.5rem;
-  }
+/* Unified hero band (headline + bullets) */
+.hero-band {
+  position: relative;
+  max-width: 64rem;
+  margin: 0 auto 3rem;
+  padding: 3.5rem 1.5rem 2.5rem;
+}
 
-  .hero-band::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(
-        circle at top center,
-        rgba(245, 242, 226, 0.24),
-        transparent 70%
-      ),
-      linear-gradient(
-        to bottom,
-        rgba(10, 12, 14, 0.8),
-        rgba(5, 7, 8, 0.98)
-      );
-    border-radius: 18px;
-    border: 1px solid rgba(209, 178, 107, 0.32);
-    box-shadow: 0 26px 60px rgba(0, 0, 0, 0.6);
-    pointer-events: none;
-    z-index: -1;
-  }
-
+/* Just a soft spotlight, no visible box */
+.hero-band::before {
+  content: "";
+  position: absolute;
+  inset: -40px 0 -10px;
+  background: radial-gradient(
+    circle at top center,
+    rgba(245, 242, 226, 0.25),
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: -1;
+  border: none;
+  box-shadow: none;
+}
+      
   .hero-band .type-ink,
   .hero-band .deboss {
     color: #f5f2e2;
@@ -536,6 +544,7 @@
     </script>
   </body>
 </html>
+
 
 
 
