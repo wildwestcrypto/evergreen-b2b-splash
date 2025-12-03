@@ -401,6 +401,19 @@
           margin-top: 0.3rem;
         }
       }
+      /* Dark sections (Proof, Conversion) */
+        .dark-band .type-ink,
+        .dark-band .deboss {
+          color: var(--cream);
+          text-shadow: 0 1px 0 rgba(0, 0, 0, 0.7);
+          mix-blend-mode: normal;
+        }
+
+        .dark-band .type-ink-soft {
+          color: #c2c8d4;
+          text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+          mix-blend-mode: normal;
+        }
     </style>
   </head>
 
@@ -558,78 +571,74 @@
       </div>
     </section>
 
-    <!-- ========================================================= -->
-    <!-- Proof Section -->
-    <!-- ========================================================= -->
-    <section id="proof" class="mt-20 text-center">
-      <h2 class="type-ink deboss text-2xl md:text-3xl mb-4">
-        Serious Security
-      </h2>
+   <!-- Proof Section -->
+<section id="proof" class="mt-20 text-center dark-band">
+  <h2 class="type-ink deboss text-2xl md:text-3xl mb-4">
+    Serious Security
+  </h2>
 
-      <p class="type-ink-soft text-sm max-w-2xl mx-auto mb-10">
-        Currency-grade protection plus digital intelligence — safeguarding
-        impact and your product's authenticity.
-      </p>
+  <p class="type-ink-soft text-sm max-w-2xl mx-auto mb-10">
+    Currency-grade protection plus digital intelligence — safeguarding
+    impact and your product's authenticity.
+  </p>
 
-      <div class="max-w-4xl mx-auto px-4">
-        <div class="media-paper">
-          <video
-            autoplay
-            muted
-            loop
-            playsinline
-            class="w-full h-auto rounded-[12px]"
-          >
-            <source src="assets/security-features-15s.mp4" type="video/mp4" />
-          </video>
-        </div>
-      </div>
-    </section>
+  <div class="max-w-4xl mx-auto px-4">
+    <div class="media-paper">
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="w-full h-auto rounded-[12px]"
+      >
+        <source src="assets/security-features-15s.mp4" type="video/mp4" />
+      </video>
+    </div>
+  </div>
+</section>
 
-    <!-- ========================================================= -->
-    <!-- Conversion Section -->
-    <!-- ========================================================= -->
-    <section id="book" class="mt-24 text-center">
-      <div class="mx-auto max-w-4xl px-4 py-10">
-        <h2 class="type-ink deboss text-2xl md:text-3xl">
-          Ready to Grow Green?
-        </h2>
-        <p class="type-ink-soft mt-2 mb-8">
-          Effortless integration, measurable impact.
-        </p>
-        <form
-          id="lead"
-          class="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto"
-          action="#"
-          method="post"
-        >
-          <input
-            required
-            name="name"
-            placeholder="Your Name"
-            class="form-input-dark"
-          />
-          <input
-            required
-            type="email"
-            name="email"
-            placeholder="Work Email"
-            class="form-input-dark"
-          />
-          <input
-            name="company"
-            placeholder="Company"
-            class="form-input-dark sm:col-span-2"
-          />
-          <button
-            class="sm:col-span-2 btn-gold px-6 py-3 font-semibold"
-            type="submit"
-          >
-            Book a Call
-          </button>
-        </form>
-      </div>
-    </section>
+<!-- Conversion Section -->
+<section id="book" class="mt-24 text-center dark-band">
+  <div class="mx-auto max-w-4xl px-4 py-10">
+    <h2 class="type-ink deboss text-2xl md:text-3xl">
+      Ready to Grow Green?
+    </h2>
+    <p class="type-ink-soft mt-2 mb-8">
+      Effortless integration, measurable impact.
+    </p>
+    <form
+      id="lead"
+      class="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto"
+      action="#"
+      method="post"
+    >
+      <input
+        required
+        name="name"
+        placeholder="Your Name"
+        class="form-input-dark"
+      />
+      <input
+        required
+        type="email"
+        name="email"
+        placeholder="Work Email"
+        class="form-input-dark"
+      />
+      <input
+        name="company"
+        placeholder="Company"
+        class="form-input-dark sm:col-span-2"
+      />
+      <button
+        class="sm:col-span-2 btn-gold px-6 py-3 font-semibold"
+        type="submit"
+      >
+        Book a Call
+      </button>
+    </form>
+  </div>
+</section>
 
     <!-- ========================================================= -->
     <!-- Footer -->
@@ -691,3 +700,4 @@
     </script>
   </body>
 </html>
+
