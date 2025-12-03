@@ -325,42 +325,6 @@
         color: var(--forest);
       }
 
-      /* PROOF band spotlight */
-      .proof-band {
-        position: relative;
-      }
-
-      .proof-band::before {
-        content: "";
-        position: absolute;
-        inset: -20px 0 0;
-        background: radial-gradient(
-          circle at top center,
-          rgba(243, 243, 235, 0.12),
-          transparent 70%
-        );
-        pointer-events: none;
-        z-index: -1;
-      }
-
-      /* Conversion band */
-      .conversion-band {
-        position: relative;
-      }
-
-      .conversion-band::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(
-          circle at top center,
-          rgba(243,243,235,0.10),
-          transparent 70%
-        );
-        pointer-events: none;
-        z-index: -1;
-      }
-
       /* Dark form inputs */
       .form-input-dark {
         background: rgba(255,255,255,0.06);
@@ -521,7 +485,7 @@
           playsinline
           class="w-full h-auto rounded-[12px]"
         >
-          <source src="assets/evergreen-loop-18s.mp4" type="video/mp4" />
+          <source src="assets/flyover_secure.mp4" type="video/mp4" />
         </video>
       </div>
       <div class="mt-7 flex flex-wrap justify-center gap-4">
@@ -597,7 +561,7 @@
     <!-- ========================================================= -->
     <!-- Proof Section -->
     <!-- ========================================================= -->
-    <section id="proof" class="mt-20 text-center proof-band">
+    <section id="proof" class="mt-20 text-center">
       <h2 class="type-ink deboss text-2xl md:text-3xl mb-4">
         Serious Security
       </h2>
@@ -625,7 +589,7 @@
     <!-- ========================================================= -->
     <!-- Conversion Section -->
     <!-- ========================================================= -->
-    <section id="book" class="mt-24 text-center conversion-band">
+    <section id="book" class="mt-24 text-center">
       <div class="mx-auto max-w-4xl px-4 py-10">
         <h2 class="type-ink deboss text-2xl md:text-3xl">
           Ready to Grow Green?
