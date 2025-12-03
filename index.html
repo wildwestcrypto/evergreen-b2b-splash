@@ -37,340 +37,407 @@
     <!-- Tailwind (no build step) -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-   <style>
-  :root {
-    --gold: #d1b26b;
-    --ink: #141518;
-    --ink-soft: #535763;
-    --forest: #507a6f;    /* brand evergreen */
-    --ovi-green: #178f6f; /* toned-down OVI green */
-    --cream: #f3f3eb;     /* banknote paper white */
-    --bg: #050708;
-  }
+    <style>
+      :root {
+        --gold: #d1b26b;
+        --ink: #141518;
+        --ink-soft: #535763;
+        --forest: #507a6f;    /* brand evergreen */
+        --ovi-green: #178f6f; /* toned-down OVI green */
+        --cream: #f3f3eb;     /* banknote paper white */
+        --bg: #050708;
+      }
 
-  body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Inter',
-      sans-serif;
-    color: var(--ink);
-    background: radial-gradient(circle at top left, #101821 0, var(--bg) 52%);
-    background-attachment: fixed;
-  }
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Inter',
+          sans-serif;
+        color: var(--ink);
+        background: radial-gradient(circle at top left, #101821 0, var(--bg) 52%);
+        background-attachment: fixed;
+      }
 
-  /* Top bar over dark */
-  header.sticky.top-0 {
-    background-color: rgba(5, 7, 8, 0.94) !important;
-    border-bottom: 1px solid rgba(209, 178, 107, 0.35);
-  }
+      /* Top bar over dark */
+      header.sticky.top-0 {
+        background-color: rgba(5, 7, 8, 0.94) !important;
+        border-bottom: 1px solid rgba(209, 178, 107, 0.35);
+      }
 
-  /* Make header text visible on dark */
-  header .type-ink,
-  header .type-ink-soft {
-    color: #f5f2e2;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
-    mix-blend-mode: normal;
-  }
+      /* Make header text visible on dark */
+      header .type-ink,
+      header .type-ink-soft {
+        color: #f5f2e2;
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
+        mix-blend-mode: normal;
+      }
 
-  header nav a {
-    color: #c2c8d4;
-  }
+      header nav a {
+        color: #c2c8d4;
+      }
 
-  header nav a:hover {
-    color: #ffffff;
-  }
+      header nav a:hover {
+        color: #ffffff;
+      }
 
-  /* Ink styles (for light sections; overridden inside hero-band) */
-  .type-ink {
-    color: var(--ink);
-    letter-spacing: 0.01em;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9),
-      0 -1px 0 rgba(0, 0, 0, 0.14), 0.5px 0.5px 0 rgba(0, 0, 0, 0.04),
-      -0.5px -0.5px 0 rgba(255, 255, 255, 0.35);
-    mix-blend-mode: multiply;
-  }
+      /* Ink styles (for light sections; overridden inside hero-band) */
+      .type-ink {
+        color: var(--ink);
+        letter-spacing: 0.01em;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9),
+          0 -1px 0 rgba(0, 0, 0, 0.14), 0.5px 0.5px 0 rgba(0, 0, 0, 0.04),
+          -0.5px -0.5px 0 rgba(255, 255, 255, 0.35);
+        mix-blend-mode: multiply;
+      }
 
-  .type-ink-soft {
-    color: var(--ink-soft);
-    letter-spacing: 0.01em;
-    text-shadow: 0.4px 0.4px 0 rgba(255, 255, 255, 0.75),
-      -0.3px -0.5px 0 rgba(0, 0, 0, 0.05);
-    mix-blend-mode: multiply;
-  }
+      .type-ink-soft {
+        color: var(--ink-soft);
+        letter-spacing: 0.01em;
+        text-shadow: 0.4px 0.4px 0 rgba(255, 255, 255, 0.75),
+          -0.3px -0.5px 0 rgba(0, 0, 0, 0.05);
+        mix-blend-mode: multiply;
+      }
 
-  .deboss {
-    color: var(--ink);
-    letter-spacing: 0.01em;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.92),
-      0 -1px 0 rgba(0, 0, 0, 0.16), 0.5px 0.5px 0 rgba(0, 0, 0, 0.04),
-      -0.5px -0.5px 0 rgba(255, 255, 255, 0.4);
-    mix-blend-mode: multiply;
-  }
+      .deboss {
+        color: var(--ink);
+        letter-spacing: 0.01em;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.92),
+          0 -1px 0 rgba(0, 0, 0, 0.16), 0.5px 0.5px 0 rgba(0, 0, 0, 0.04),
+          -0.5px -0.5px 0 rgba(255, 255, 255, 0.4);
+        mix-blend-mode: multiply;
+      }
 
-  /* Buttons */
-  .btn-gold {
-    background: linear-gradient(135deg, var(--gold), #e0c878);
-    color: #111111;
-    border-radius: 10px;
-  }
+      /* Buttons */
+      .btn-gold {
+        background: linear-gradient(135deg, var(--gold), #e0c878);
+        color: #111111;
+        border-radius: 10px;
+      }
 
-  .btn-green {
-    background-color: var(--forest);
-    border: 1px solid #2f4a3d;
-    border-radius: 10px;
-    color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-    transition: background-color 0.2s ease, transform 0.1s ease;
-  }
+      .btn-green {
+        background-color: var(--forest);
+        border: 1px solid #2f4a3d;
+        border-radius: 10px;
+        color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+        transition: background-color 0.2s ease, transform 0.1s ease;
+      }
 
-  .btn-green:hover {
-    background-color: #324b43;
-    transform: translateY(-1px);
-  }
+      .btn-green:hover {
+        background-color: #324b43;
+        transform: translateY(-1px);
+      }
 
-  .btn-green:active {
-    background-color: #293c36;
-    transform: translateY(0);
-  }
+      .btn-green:active {
+        background-color: #293c36;
+        transform: translateY(0);
+      }
 
-  dialog::backdrop {
-    background: rgba(0, 0, 0, 0.9); /* darker so background video doesn't distract */
-  }
+      dialog::backdrop {
+        background: rgba(0, 0, 0, 0.9); /* darker so background video doesn't distract */
+      }
 
-  /* OVI motion (if used later) */
-  .color-loop {
-    position: relative;
-    display: inline-block;
-    line-height: 0;
-  }
+      /* OVI motion (if used later) */
+      .color-loop {
+        position: relative;
+        display: inline-block;
+        line-height: 0;
+      }
 
-  .color-loop img {
-    display: block;
-    max-width: 240px;
-    max-height: 7rem;
-    height: auto;
-    object-fit: contain;
-  }
+      .color-loop img {
+        display: block;
+        max-width: 240px;
+        max-height: 7rem;
+        height: auto;
+        object-fit: contain;
+      }
 
-  .color-loop .top {
-    position: absolute;
-    inset: 0;
-    animation: inkShift 1.8s ease-in-out infinite;
-  }
+      .color-loop .top {
+        position: absolute;
+        inset: 0;
+        animation: inkShift 1.8s ease-in-out infinite;
+      }
 
-  @keyframes inkShift {
-    0% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
+      @keyframes inkShift {
+        0% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
 
-  @media (prefers-reduced-motion: reduce) {
-    .color-loop .top {
-      animation: none;
-      opacity: 0;
-    }
-  }
+      @media (prefers-reduced-motion: reduce) {
+        .color-loop .top {
+          animation: none;
+          opacity: 0;
+        }
+      }
 
-  /* Paper-framed media (videos) — COOL STAGE MATCH */
-  .media-paper {
-    position: relative;
-    border: 1px solid rgba(0, 0, 0, 0.18);
-    border-radius: 16px;
-    background: rgba(12, 16, 18, 0.88); /* deep cool ink-black */
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
-    overflow: hidden;
-  }
+      /* Paper-framed media (videos) — COOL STAGE MATCH */
+      .media-paper {
+        position: relative;
+        border: 1px solid rgba(0, 0, 0, 0.18);
+        border-radius: 16px;
+        background: rgba(12, 16, 18, 0.88); /* deep cool ink-black */
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+        overflow: hidden;
+      }
 
-  .media-paper::before {
-    content: '';
-    position: absolute;
-    inset: 10px;
-    border-radius: 12px;
-    border: 1px solid rgba(72, 97, 91, 0.6); /* inner evergreen frame */
-    pointer-events: none;
-  }
+      .media-paper::before {
+        content: '';
+        position: absolute;
+        inset: 10px;
+        border-radius: 12px;
+        border: 1px solid rgba(72, 97, 91, 0.6); /* inner evergreen frame */
+        pointer-events: none;
+      }
 
-  .media-paper img,
-  .media-paper video {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    filter: contrast(0.96) saturate(0.94) brightness(0.97);
-  }
+      .media-paper img,
+      .media-paper video {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        filter: contrast(0.96) saturate(0.94) brightness(0.97);
+      }
 
-  .media-paper::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: radial-gradient(
-      ellipse at center,
-      rgba(0, 0, 0, 0.08),
-      transparent 55%
-    );
-    opacity: 0.32;
-    mix-blend-mode: multiply;
-  }
+      .media-paper::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: radial-gradient(
+          ellipse at center,
+          rgba(0, 0, 0, 0.08),
+          transparent 55%
+        );
+        opacity: 0.32;
+        mix-blend-mode: multiply;
+      }
 
-  /* ============================================================
-     MIDDLE SECTION: "Why Sustainability Claims Struggle"
-     ============================================================ */
+      /* ============================================================
+         MIDDLE SECTION: "Why Sustainability Claims Struggle"
+         ============================================================ */
 
-  #solution {
-    position: relative;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-    background: transparent !important; /* kill bg-white/20 from Tailwind */
-  }
+      #solution {
+        position: relative;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        background: transparent !important; /* kill bg-white/20 from Tailwind */
+      }
 
-  #solution::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(
-      circle at center,
-      rgba(10, 12, 14, 0.85),
-      transparent 70%
-    );
-    z-index: -1;
-  }
+      #solution::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          circle at center,
+          rgba(10, 12, 14, 0.85),
+          transparent 70%
+        );
+        z-index: -1;
+      }
 
-  #solution h2 {
-    color: var(--cream);
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.7);
-    mix-blend-mode: normal;
-  }
+      #solution h2 {
+        color: var(--cream);
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.7);
+        mix-blend-mode: normal;
+      }
 
-  #solution .type-ink-soft {
-    color: #4a4f5a;
-    text-shadow: none;
-    mix-blend-mode: normal;
-  }
+      #solution .type-ink-soft {
+        color: #4a4f5a;
+        text-shadow: none;
+        mix-blend-mode: normal;
+      }
 
-  .solution-card {
-    background: rgba(243, 240, 232, 0.96); /* light banknote paper */
-    border-radius: 16px;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
-  }
+      .solution-card {
+        background: rgba(243, 240, 232, 0.96); /* light banknote paper */
+        border-radius: 16px;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+      }
 
-  .solution-card--gap {
-    border-top: 3px solid #c66166; /* muted red */
-  }
+      .solution-card--gap {
+        border-top: 3px solid #c66166; /* muted red */
+      }
 
-  .solution-card--evergreen {
-    border-top: 3px solid var(--forest);
-  }
+      .solution-card--evergreen {
+        border-top: 3px solid var(--forest);
+      }
 
-  .solution-card h3 {
-    color: #262629;
-  }
+      .solution-card h3 {
+        color: #262629;
+      }
 
-  .solution-card .solution-accent {
-    font-weight: 700;
-  }
+      .solution-card .solution-accent {
+        font-weight: 700;
+      }
 
-  /* Footer rule */
-  footer {
-    border-top: 1px solid rgba(209, 178, 107, 0.28);
-  }
+      /* Footer rule (base) */
+      footer {
+        border-top: 1px solid rgba(209, 178, 107, 0.28);
+      }
 
-  /* ============================================================
-     HERO BAND (headline + bullets)
-     Base ink = cream
-     Highlight = OVI green
-     ============================================================ */
-  .hero-band {
-    position: relative;
-    max-width: 64rem;
-    margin: 0 auto 3rem;
-    padding: 3.5rem 1.5rem 2.5rem;
-  }
+      /* ============================================================
+         HERO BAND (headline + bullets)
+         ============================================================ */
+      .hero-band {
+        position: relative;
+        max-width: 64rem;
+        margin: 0 auto 3rem;
+        padding: 3.5rem 1.5rem 2.5rem;
+      }
 
-  .hero-band::before {
-    content: "";
-    position: absolute;
-    inset: -40px 0 -10px;
-    background: radial-gradient(
-      circle at top center,
-      rgba(243, 243, 235, 0.25),
-      transparent 70%
-    );
-    pointer-events: none;
-    z-index: -1;
-  }
+      .hero-band::before {
+        content: "";
+        position: absolute;
+        inset: -40px 0 -10px;
+        background: radial-gradient(
+          circle at top center,
+          rgba(243, 243, 235, 0.25),
+          transparent 70%
+        );
+        pointer-events: none;
+        z-index: -1;
+      }
 
-  .hero-band .type-ink,
-  .hero-band .deboss {
-    color: var(--cream);
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.7);
-    mix-blend-mode: normal;
-  }
+      .hero-band .type-ink,
+      .hero-band .deboss {
+        color: var(--cream);
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.7);
+        mix-blend-mode: normal;
+      }
 
-  .hero-band .type-ink-soft {
-    color: #c2c8d4;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
-    mix-blend-mode: normal;
-  }
+      .hero-band .type-ink-soft {
+        color: #c2c8d4;
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+        mix-blend-mode: normal;
+      }
 
-  .hero-band .hero-highlight {
-    color: var(--ovi-green);
-    text-shadow: 0 0 10px rgba(23, 143, 111, 0.25);
-  }
+      .hero-band .hero-highlight {
+        color: var(--ovi-green);
+        text-shadow: 0 0 10px rgba(23, 143, 111, 0.25);
+      }
 
-  .solution-green {
-    color: var(--forest);
-  }
+      .solution-green {
+        color: var(--forest);
+      }
 
-  /* Mobile tightening */
-  @media (max-width: 640px) {
-    .hero-band {
-      margin-top: 1rem;
-      margin-bottom: 1.5rem;
-      padding: 1.75rem 1.1rem 1.25rem;
-    }
+      /* PROOF band spotlight */
+      .proof-band {
+        position: relative;
+      }
 
-    .hero-band h1 {
-      font-size: 1.6rem;
-      line-height: 1.25;
-    }
+      .proof-band::before {
+        content: "";
+        position: absolute;
+        inset: -20px 0 0;
+        background: radial-gradient(
+          circle at top center,
+          rgba(243, 243, 235, 0.12),
+          transparent 70%
+        );
+        pointer-events: none;
+        z-index: -1;
+      }
 
-    .hero-band h1 .hero-highlight {
-      font-size: 2rem;
-      display: block;
-      margin-top: 0.15rem;
-    }
+      /* Conversion band */
+      .conversion-band {
+        position: relative;
+      }
 
-    .hero-band ul {
-      font-size: 0.98rem;
-    }
+      .conversion-band::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          circle at top center,
+          rgba(243,243,235,0.10),
+          transparent 70%
+        );
+        pointer-events: none;
+        z-index: -1;
+      }
 
-    .hero-band li .hero-highlight {
-      font-size: 1rem;
-      font-weight: 600;
-    }
+      /* Dark form inputs */
+      .form-input-dark {
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.1);
+        color: var(--cream);
+        padding: 0.7rem 1rem;
+        border-radius: 8px;
+      }
 
-    .hero-band li > .hero-highlight {
-      font-size: 1.25rem;
-      margin-top: 0.05rem;
-    }
+      .form-input-dark::placeholder {
+        color: rgba(255,255,255,0.45);
+      }
 
-    section.mx-auto.max-w-4xl.px-4.pb-12 {
-      padding-top: 0.5rem;
-      padding-bottom: 2.25rem;
-    }
+      /* Footer dark */
+      .footer-dark {
+        border-top: 1px solid rgba(209,178,107,0.25);
+        padding-top: 2rem;
+      }
 
-    .media-paper {
-      margin-top: 0.3rem;
-    }
-  }
-</style>
+      .footer-text {
+        color: rgba(255,255,255,0.55);
+      }
 
+      .footer-links a {
+        color: rgba(255,255,255,0.55);
+        transition: color 0.2s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--ovi-green);
+      }
+
+      /* Mobile tightening */
+      @media (max-width: 640px) {
+        .hero-band {
+          margin-top: 1rem;
+          margin-bottom: 1.5rem;
+          padding: 1.75rem 1.1rem 1.25rem;
+        }
+
+        .hero-band h1 {
+          font-size: 1.6rem;
+          line-height: 1.25;
+        }
+
+        /* ONLY the main 28% Faster */
+        .hero-band h1 .hero-highlight {
+          font-size: 2rem;
+          display: block;
+          margin-top: 0.15rem;
+        }
+
+        .hero-band ul {
+          font-size: 0.98rem;
+        }
+
+        /* Bullet titles + checkmarks */
+        .hero-band li .hero-highlight {
+          font-size: 1rem;
+          font-weight: 600;
+        }
+
+        .hero-band li > .hero-highlight {
+          font-size: 1.25rem;
+          margin-top: 0.05rem;
+        }
+
+        section.mx-auto.max-w-4xl.px-4.pb-12 {
+          padding-top: 0.5rem;
+          padding-bottom: 2.25rem;
+        }
+
+        .media-paper {
+          margin-top: 0.3rem;
+        }
+      }
+    </style>
   </head>
 
   <body class="antialiased">
@@ -378,21 +445,20 @@
     <!-- Header -->
     <!-- ========================================================= -->
     <header
-      class="sticky top-0 z-20 bg-[rgba(245,242,226,.85)]/90 backdrop-blur-sm border-b border-black/10"
+      class="sticky top-0 z-20 backdrop-blur-sm"
     >
       <div
         class="mx-auto max-w-5xl px-4 py-3 flex items-center justify-between"
       >
         <a href="#" class="flex items-center gap-3">
           <img
-            src="assets/logo-seal_banknote.png"
+            src="assets/logo-seal.png"
             alt="Evergreen Exchange"
             class="h-9 w-9"
           />
           <span class="type-ink">Evergreen Exchange</span>
         </a>
-        <!-- Book visible on mobile too -->
-        <nav class="flex items-center gap-4 text-xs md:text-sm type-ink-soft">
+        <nav class="hidden md:flex items-center gap-6 text-sm type-ink-soft">
           <a href="#book" class="hover:underline">Book</a>
         </nav>
       </div>
@@ -455,7 +521,7 @@
           playsinline
           class="w-full h-auto rounded-[12px]"
         >
-          <source src="assets/flyover_secure.mp4" type="video/mp4" />
+          <source src="assets/evergreen-loop-18s.mp4" type="video/mp4" />
         </video>
       </div>
       <div class="mt-7 flex flex-wrap justify-center gap-4">
@@ -469,77 +535,79 @@
     </section>
 
     <!-- ========================================================= -->
-    <!-- Problem Solution Section -->
+    <!-- Problem / Solution Section -->
     <!-- ========================================================= -->
     <section id="solution" class="mt-12 py-12">
-  <div class="max-w-4xl mx-auto px-4 text-center">
-    <h2 class="text-2xl md:text-3xl deboss type-ink mb-8">
-      Why Sustainability Claims Struggle
-    </h2>
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-2xl md:text-3xl deboss type-ink mb-8">
+          Why Sustainability Claims Struggle
+        </h2>
 
-    <div class="grid md:grid-cols-2 gap-8 text-left">
-      <!-- The Gap -->
-      <div class="solution-card solution-card--gap p-6">
-        <h3 class="font-bold text-lg mb-4 type-ink">
-          <span class="solution-accent">❌ The Gap</span>
-        </h3>
-        <ul class="space-y-3 text-sm type-ink-soft">
-          <li class="flex items-start gap-2">
-            <span class="flex-shrink-0">•</span>
-            <span>Consumers can't decode claims (46%*)</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="flex-shrink-0">•</span>
-            <span>Consumers don't trust claims (57%**)</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="flex-shrink-0">•</span>
-            <span>High investment requirements (25%***)</span>
-          </li>
-        </ul>
-        <p class="text-xs mt-4 italic type-ink-soft">
-          *Deloitte 2023 **Simon Kucher 2024 ***Morgan Stanley 2025
-        </p>
+        <div class="grid md:grid-cols-2 gap-8 text-left">
+          <!-- The Gap -->
+          <div class="solution-card solution-card--gap p-6">
+            <h3 class="font-bold text-lg mb-4 type-ink">
+              <span class="solution-accent">❌ The Gap</span>
+            </h3>
+            <ul class="space-y-3 text-sm type-ink-soft">
+              <li class="flex items-start gap-2">
+                <span class="flex-shrink-0">•</span>
+                <span>Consumers can't decode claims (46%*)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="flex-shrink-0">•</span>
+                <span>Consumers don't trust claims (57%**)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="flex-shrink-0">•</span>
+                <span>High investment requirements (25%***)</span>
+              </li>
+            </ul>
+            <p class="text-xs mt-4 italic type-ink-soft">
+              *Deloitte 2023 **Simon Kucher 2024 ***Morgan Stanley 2025
+            </p>
+          </div>
+
+          <!-- Evergreen Solution -->
+          <div class="solution-card solution-card--evergreen p-6">
+            <h3 class="font-bold text-lg mb-4 solution-green solution-accent">
+              ✓ Evergreen
+            </h3>
+            <ul class="space-y-3 text-sm type-ink-soft">
+              <li class="flex items-start gap-2">
+                <span class="flex-shrink-0">•</span>
+                <span>One click - instant messaging and claim details</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="flex-shrink-0">•</span>
+                <span>Blockchain backed full transparency</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="flex-shrink-0">•</span>
+                <span>
+                  Low-cost pilot programs, simple implementation, measurable ROI
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
-
-      <!-- Evergreen Solution -->
-      <div class="solution-card solution-card--evergreen p-6">
-        <h3 class="font-bold text-lg mb-4 solution-green solution-accent">
-          ✓ Evergreen
-        </h3>
-        <ul class="space-y-3 text-sm type-ink-soft">
-          <li class="flex items-start gap-2">
-            <span class="flex-shrink-0">•</span>
-            <span>One click - instant messaging and claim details</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="flex-shrink-0">•</span>
-            <span>Blockchain backed full transparency</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <span class="flex-shrink-0">•</span>
-            <span>
-              Low-cost pilot programs, simple implementation, measurable ROI
-            </span>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
+    </section>
 
     <!-- ========================================================= -->
     <!-- Proof Section -->
     <!-- ========================================================= -->
-    <section id="proof" class="mt-12 text-center">
-      <h2 class="type-ink deboss text-xl">Serious Security</h2>
-      <p class="type-ink-soft deboss mt-6 text-sm max-w-2xl mx-auto">
+    <section id="proof" class="mt-20 text-center proof-band">
+      <h2 class="type-ink deboss text-2xl md:text-3xl mb-4">
+        Serious Security
+      </h2>
+
+      <p class="type-ink-soft text-sm max-w-2xl mx-auto mb-10">
         Currency-grade protection plus digital intelligence — safeguarding
         impact and your product's authenticity.
       </p>
 
-      <div class="mt-8 mx-auto max-w-4xl px-4">
+      <div class="max-w-4xl mx-auto px-4">
         <div class="media-paper">
           <video
             autoplay
@@ -557,17 +625,17 @@
     <!-- ========================================================= -->
     <!-- Conversion Section -->
     <!-- ========================================================= -->
-    <section id="book" class="mt-12 text-center">
-      <div class="mx-auto max-w-5xl px-4 py-10">
+    <section id="book" class="mt-24 text-center conversion-band">
+      <div class="mx-auto max-w-4xl px-4 py-10">
         <h2 class="type-ink deboss text-2xl md:text-3xl">
-          Ready to grow green?
+          Ready to Grow Green?
         </h2>
-        <p class="type-ink-soft deboss mt-2">
+        <p class="type-ink-soft mt-2 mb-8">
           Effortless integration, measurable impact.
         </p>
         <form
           id="lead"
-          class="mt-6 grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto"
+          class="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto"
           action="#"
           method="post"
         >
@@ -575,19 +643,19 @@
             required
             name="name"
             placeholder="Your Name"
-            class="rounded-md px-4 py-3 bg-white/80 border border-black/10"
+            class="form-input-dark"
           />
           <input
             required
             type="email"
             name="email"
             placeholder="Work Email"
-            class="rounded-md px-4 py-3 bg-white/80 border border-black/10"
+            class="form-input-dark"
           />
           <input
             name="company"
             placeholder="Company"
-            class="rounded-md px-4 py-3 bg-white/80 border border-black/10 sm:col-span-2"
+            class="form-input-dark sm:col-span-2"
           />
           <button
             class="sm:col-span-2 btn-gold px-6 py-3 font-semibold"
@@ -602,19 +670,19 @@
     <!-- ========================================================= -->
     <!-- Footer -->
     <!-- ========================================================= -->
-    <footer class="mt-8 text-center">
+    <footer class="footer-dark mt-20 text-center">
       <div
         class="mx-auto max-w-5xl px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-4"
       >
         <div class="flex items-center gap-3">
-          <img src="assets/logo-seal_banknote.png" alt="Evergreen" class="h-8 w-8" />
-          <span class="type-ink-soft text-sm">Verified Carbon Offsets</span>
+          <img src="assets/logo-seal.png" alt="Evergreen" class="h-7 w-7 opacity-70" />
+          <span class="footer-text text-sm">Verified Carbon Offsets</span>
         </div>
-        <div class="type-ink-soft text-sm flex items-center gap-6">
+        <div class="footer-links text-sm flex items-center gap-6">
           <a href="mailto:casey@theevergreenexchange.com">Contact</a>
         </div>
       </div>
-      <div class="text-center type-ink-soft text-xs py-4">
+      <div class="footer-text text-xs pb-6">
         © Evergreen Exchange 2025
       </div>
     </footer>
@@ -659,8 +727,3 @@
     </script>
   </body>
 </html>
-
-
-
-
-
